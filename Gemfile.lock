@@ -135,7 +135,7 @@ PLATFORMS
 DEPENDENCIES
   capybara (= 2.2.1)
   coffee-rails (= 4.0.1)
-  fabrication
+  fabrication (= 2.9.6)
   jbuilder (= 1.5.3)
   jquery-rails (= 3.1.0)
   pg (= 0.17.1)
