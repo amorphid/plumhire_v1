@@ -14,5 +14,6 @@ group :doc do
 end
 
 group :development, :test do
+  gem "capybara", "2.2.1"
   gem "rspec-rails", "2.14.1"
 end
