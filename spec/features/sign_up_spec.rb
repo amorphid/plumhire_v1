@@ -1,7 +1,7 @@
 require "spec_helper"
 
 feature "Signing up" do
-  background { visit sign_up_path }
+  background { visit new_sign_up_path }
 
   context "with email" do
     scenario "displays success message" do
