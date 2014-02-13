@@ -1,1 +1,10 @@
-Sign up successful
+<h1>
+  Sign Up
+</h1>
+
+<%= form_for create_or_update_sign_up_path(@sign_up) do |f| %>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+<% end %>
