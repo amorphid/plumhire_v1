@@ -4,9 +4,12 @@ feature "Signing up" do
   background { visit new_sign_up_path }
 
   context "with email" do
+    given(:email) { Faker::Internet.email }
+
     scenario "displays success message" do
-      body = page.body
-      expect(body).to have_content("Sign up successful")
+      body    = page.body
+      message = "Confirmation email sent to " + email
+      expect(body).to have_content(message)
     end
 
     scenario "creates a SignUp"
