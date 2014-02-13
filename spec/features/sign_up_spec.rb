@@ -6,6 +6,11 @@ feature "Signing up" do
   context "with email" do
     given(:email) { Faker::Internet.email }
 
+    background do
+      fill_in "sign_in_email", with: email
+      click_button("Submit")
+    end
+
     scenario "displays success message" do
       body    = page.body
       message = "Confirmation email sent to " + email
