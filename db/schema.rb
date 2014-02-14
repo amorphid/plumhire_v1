@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213000856) do
+ActiveRecord::Schema.define(version: 20140214193533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140213000856) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.uuid     "uuid"
   end
 
   add_index "sign_ups", ["email"], name: "index_sign_ups_on_email", using: :btree
