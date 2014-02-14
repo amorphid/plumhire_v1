@@ -9,4 +9,14 @@ describe "Route" do
       )
     end
   end
+
+  context "create_or_update_sign_up_path" do
+    it "routes to SignUpsController#create_or_update" do
+      expect(put: "/sign_ups/:id/create_or_update").to route_to(
+        controller: "sign_ups",
+        id:         ":id",
+        action:     "create_or_update"
+      )
+    end
+  end
 end
