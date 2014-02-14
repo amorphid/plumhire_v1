@@ -1,5 +1,5 @@
 class SignUpsController < ApplicationController
-  def new
+  def index
     @sign_up = SignUp.new
   end
 end
