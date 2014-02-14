@@ -1,9 +1,9 @@
 require "spec_helper"
 
 describe SignUpsController do
-  context "#new" do
+  context "#index" do
     it "sets @sign_up" do
-      get :new
+      get :index
       assignment = assigns(:sign_up)
       expect(assignment).to be_instance_of(SignUp)
     end
