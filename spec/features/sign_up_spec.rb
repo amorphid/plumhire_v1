@@ -1,7 +1,7 @@
 require "spec_helper"
 
 feature "Signing up" do
-  background { visit new_sign_up_path }
+  background { visit sign_ups_path }
 
   context "with email" do
     given(:email) { Faker::Internet.email }
