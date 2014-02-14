@@ -8,6 +8,7 @@ gem "pg", "0.17.1"
 gem "sass-rails", "4.0.1"
 gem "turbolinks", "2.2.1"
 gem "uglifier", "2.4.0"
+gem "uuidtools", "2.1.4"
 
 group :doc do
   gem "sdoc", "0.4.0", require: false
