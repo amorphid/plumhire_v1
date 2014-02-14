@@ -1,11 +1,7 @@
 require "spec_helper"
 
 describe ModelDecorator do
-  let(:model) do
-    class Model < ActiveRecord::Base
-      attr_accessor :uuid
-    end
-  end
+  let(:model) { Struct.new("Model", :uuid) }
 
   let(:version_5_uuid) do
     /([a-z]|\d){8}-([a-z]|\d){4}-([a-z]|\d){4}-([a-z]|\d){4}-([a-z]|\d){12}/
