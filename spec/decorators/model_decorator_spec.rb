@@ -14,6 +14,13 @@ describe ModelDecorator do
       uuid = response.uuid
       expect(uuid).to match(version_5_uuid)
     end
+
+    it "overrides models to_param method" do
+      model_decorator.override_to_param_method
+      response  = model_decorator.response
+      to_param  = response.to_param
+      expect(to_param).to eq("uuid")
+    end
   end
 
   context "#uuid" do
