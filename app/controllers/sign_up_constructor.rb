@@ -1,0 +1,2 @@
+class SignUpConstructor
+end
