@@ -2,18 +2,18 @@ require "spec_helper"
 
 describe ModelDecorator do
   let(:model) { Struct.new("Model", :uuid) }
+  let(:response) { subject.response }
 
   let(:version_5_uuid) do
     /([a-z]|\d){8}-([a-z]|\d){4}-([a-z]|\d){4}-([a-z]|\d){4}-([a-z]|\d){12}/
   end
 
-  subject { ModelDecorator.new(model) }
+  subject { ModelDecorator.new(model.new) }
 
-  context "#decorate" do
-    it "adds a uuid to a model" do
-      model_without_uuid = model.new(uuid: nil)
-      uuid               = ModelDecorator.new.decorate(model_without_uuid)
-      expect(uuid).to_match(version_5_uuid)
+  context "#response" do
+    it "returns model with uuid" do
+      uuid = response.uuid
+      expect(uuid).to match(version_5_uuid)
     end
   end
 
