@@ -7,7 +7,7 @@ describe ModelDecorator do
     /([a-z]|\d){8}-([a-z]|\d){4}-([a-z]|\d){4}-([a-z]|\d){4}-([a-z]|\d){12}/
   end
 
-  subject { ModelDecorator.new(model).response }
+  subject { ModelDecorator.new(model) }
 
   context "#uuid" do
     it "adds a Version 5 (SHA-1 hash) UUID" do
