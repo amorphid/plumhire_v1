@@ -5,6 +5,9 @@ class ModelDecorator
     @model = model
   end
 
+  def decorate
+  end
+
   def response
     model
   end
