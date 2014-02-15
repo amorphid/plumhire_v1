@@ -1,7 +1,7 @@
 class ModelDecorator
   attr_reader :model
 
-  def initialize(model = nil)
+  def initialize(model)
     @model = model
   end
 
