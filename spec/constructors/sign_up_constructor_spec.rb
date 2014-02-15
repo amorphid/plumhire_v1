@@ -1,6 +1,6 @@
 require "spec_helper"
 
-descrbe SignUpConstructor do
+describe SignUpConstructor do
   subject { SignUpConstructor.new }
 
   context "#response" do
