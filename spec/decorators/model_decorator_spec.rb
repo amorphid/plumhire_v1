@@ -10,7 +10,7 @@ describe ModelDecorator do
   subject { ModelDecorator.new(model) }
 
   context "#uuid" do
-    it "adds a Version 5 (SHA-1 hash) UUID" do
+    it "generates a Version 5 (SHA-1 hash) UUID" do
       uuid = subject.uuid
       expect(uuid).to match(version_5_uuid)
     end
