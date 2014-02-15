@@ -2,6 +2,7 @@ class Version5UuidSetter
   attr_reader :object
 
   def initialize(object)
+    @object     = object
     object.uuid = uuid
   end
 
