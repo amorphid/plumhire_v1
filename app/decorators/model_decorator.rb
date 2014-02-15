@@ -6,5 +6,6 @@ class ModelDecorator
   end
 
   def response
+    model
   end
 end
