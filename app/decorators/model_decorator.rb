@@ -4,4 +4,7 @@ class ModelDecorator
   def initialize(model)
     @model = model.new
   end
+
+  def response
+  end
 end
