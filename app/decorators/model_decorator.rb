@@ -5,7 +5,13 @@ class ModelDecorator
     @model = model
   end
 
+  def override_to_param_method
+    to_param = "def to_param; \"uuid\"; end"
+    model.class.module_eval(to_param)
+  end
+
   def response
+    override_to_param_method
     model.uuid = uuid
     model
   end
