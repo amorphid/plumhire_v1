@@ -4,4 +4,9 @@ class Version5UuidConstructor
     # Version 5 uses a SHA-1 encryption hash
     UUIDTools::UUID.timestamp_create.to_s
   end
+
+  def timestamp
+    uuid = UUIDTools::UUID.timestamp_create
+    uuid.to_s
+  end
 end
