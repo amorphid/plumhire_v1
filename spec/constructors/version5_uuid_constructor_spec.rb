@@ -7,6 +7,14 @@ describe Version5UuidConstructor do
 
   subject { Version5UuidConstructor.new }
 
+  context "#mac_address" do
+    it "retrieves computers mac address" do
+      mac_address = subject.mac_address
+      pattern     = /((\d|[a-f]){2}:){5}(\d|[a-f]){2}/
+      expect(mac_address).to match(pattern)
+    end
+  end
+
   context "#response" do
     it "generates a Version 5 UUID" do
       uuid = subject.response
