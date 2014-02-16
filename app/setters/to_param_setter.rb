@@ -1,0 +1,2 @@
+class ToParamSetter
+end
