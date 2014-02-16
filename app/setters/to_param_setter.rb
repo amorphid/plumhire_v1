@@ -6,6 +6,8 @@ class ToParamSetter
   end
 
   def response
+    override_to_param
+    object
   end
 
   def override_to_param
