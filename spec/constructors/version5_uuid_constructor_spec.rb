@@ -23,9 +23,10 @@ describe Version5UuidConstructor do
   end
 
   context "#timestamp" do
-    it "generates a UUID (not sure what type, it's not Version 5)" do
-      uuid = subject.timestamp
-      expect(uuid).to match(uuid_pattern)
+    it "returns a UUIDTools::UUID object" do
+      object    = subject.timestamp
+      obj_class = object.class
+      expect(obj_class).to eq(UUIDTools::UUID)
     end
   end
 end

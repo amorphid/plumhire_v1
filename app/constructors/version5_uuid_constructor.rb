@@ -4,13 +4,11 @@ class Version5UuidConstructor
   end
 
   def response
-    # this generates a UUID, not it's not Version 5
-    # Version 5 uses a SHA-1 encryption hash
-    UUIDTools::UUID.timestamp_create.to_s
+    uuid = UUIDTools::UUID.sha1_create(timestamp, mac_address)
+    uuid.to_s
   end
 
   def timestamp
     uuid = UUIDTools::UUID.timestamp_create
-    uuid.to_s
   end
 end
