@@ -13,11 +13,4 @@ describe ToParamSetter do
       expect(override).to eq(:to_param)
     end
   end
-
-  context "#to_param" do
-    it "returns 'uuid'" do
-      to_param = subject.to_param
-      expect(to_param).to eq("uuid")
-    end
-  end
 end
