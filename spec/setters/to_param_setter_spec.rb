@@ -7,7 +7,14 @@ describe ToParamSetter do
     ToParamSetter.new(some_object)
   end
 
-  context "#uuid" do
+  context "#override_to_param" do
+    it "returns :to_param" do
+      override = subject.override_to_param
+      expect(override).to eq(:to_param)
+    end
+  end
+
+  context "#to_param" do
     it "returns 'uuid'" do
       to_param = subject.to_param
       expect(to_param).to eq("uuid")
