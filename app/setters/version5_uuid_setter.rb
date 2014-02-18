@@ -3,6 +3,7 @@ class Version5UuidSetter
 
   def initialize(args = {})
     @object = args[:object]
+    set_uuid
   end
 
   def set_uuid(object = object)
