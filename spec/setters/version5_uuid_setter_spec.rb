@@ -6,13 +6,13 @@ describe Version5UuidSetter do
   context "#object_has_uuid?" do
     it "returns true with uuid" do
       uuid          = Version5UuidConstructor.new.response
-      object        = NGR::ReaderWriter.new(uuid: uuid)
+      object        = SRO::ReaderWriter.new(uuid: uuid)
       true_or_false = subject.object_has_uuid?(object)
       expect(true_or_false).to eq(true)
     end
 
     it "returns false without uuid" do
-      object        = NGR::ReaderWriter.new(uuid: nil)
+      object        = SRO::ReaderWriter.new(uuid: nil)
       true_or_false = subject.object_has_uuid?(object)
       expect(true_or_false).to eq(false)
     end
