@@ -3,18 +3,17 @@ class Version5UuidSetter
 
   def initialize(args = {})
     @object = args[:object]
-    set_uuid
+
+    unless object.blank?
+      set_uuid
+    end
   end
 
   def set_uuid(object = object)
-    unless object_has_uuid?(object)
+    unless object.uuid
       constructor = Version5UuidConstructor.new
       uuid        = constructor.response
       object.uuid = uuid
     end
-  end
-
-  def object_has_uuid?(object = object)
-    object.uuid ? true : false
   end
 end
