@@ -11,10 +11,10 @@ describe ModelDecorator do
     end
   end
 
-  context "#version_5_uuid_setter" do
+  context "#version5_uuid_setter" do
     it "returns an instance of Version5UuidSetter" do
-      model    = SRO::ReaderWriter.new
-      instance = subject.version_5_uuid_setter(model)
+      model    = SRO::ReaderWriter.new(uuid: nil)
+      instance = subject.version5_uuid_setter(model)
       expect(instance).to be_instance_of(Version5UuidSetter)
     end
   end
