@@ -6,6 +6,11 @@ class Version5UuidSetter
   end
 
   def set_uuid(object = object)
+    unless object_has_uuid?(object)
+      constructor = Version5UuidConstructor.new
+      uuid        = constructor.response
+      object.uuid = uuid
+    end
   end
 
   def object_has_uuid?(object = object)
