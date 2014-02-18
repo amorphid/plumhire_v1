@@ -5,6 +5,9 @@ class Version5UuidSetter
     @object = args[:object]
   end
 
+  def set_uuid(object = object)
+  end
+
   def object_has_uuid?(object = object)
     object.uuid ? true : false
   end
