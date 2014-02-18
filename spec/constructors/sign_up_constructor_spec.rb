@@ -5,8 +5,8 @@ describe SignUpConstructor do
 
   context "#model_decorator" do
     it "returns an instance of ModelDecorator" do
-      object   = SRO::ReaderWriter.new(uuid: nil)
-      instance = subject.model_decorator(object)
+      sign_up  = SRO::ReaderWriter.new(uuid: nil)
+      instance = subject.model_decorator(sign_up)
       expect(instance).to be_instance_of(ModelDecorator)
     end
   end

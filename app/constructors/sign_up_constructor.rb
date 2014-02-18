@@ -5,7 +5,12 @@ class SignUpConstructor
     @sign_up = SignUp.new
   end
 
+  def model_decorator(sign_up = sign_up)
+    ModelDecorator.new(model: sign_up)
+  end
+
   def response
+    model_decorator
     sign_up
   end
 end
