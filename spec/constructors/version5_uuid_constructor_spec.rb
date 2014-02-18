@@ -1,10 +1,6 @@
 require "spec_helper"
 
 describe Version5UuidConstructor do
-  let(:uuid_pattern) do
-    /([a-z]|\d){8}-([a-z]|\d){4}-([a-z]|\d){4}-([a-z]|\d){4}-([a-z]|\d){12}/
-  end
-
   subject { Version5UuidConstructor.new }
 
   context "#mac_address" do
@@ -18,7 +14,8 @@ describe Version5UuidConstructor do
   context "#response" do
     it "generates a Version 5 UUID" do
       uuid = subject.response
-      expect(uuid).to match(uuid_pattern)
+      pattern = SRO::Uuid.pattern
+      expect(uuid).to match(pattern)
     end
   end
 
