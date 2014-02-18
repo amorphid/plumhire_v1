@@ -6,6 +6,6 @@ class Version5UuidSetter
   end
 
   def object_has_uuid?(object = object)
-    false
+    object.uuid ? true : false
   end
 end
