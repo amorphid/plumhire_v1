@@ -7,7 +7,7 @@ describe Version5UuidSetter do
     it "returns false without uuid" do
       object = NGR::ReaderWriter.new(uuid: nil)
       true_or_false = subject.object_has_uuid?(object)
-      expect(true_or_false).to be_false
+      expect(true_or_false).to eq(false)
     end
   end
 end
