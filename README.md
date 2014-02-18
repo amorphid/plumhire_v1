@@ -11,7 +11,7 @@ Testing > Macros > Some Ruby Objects
 
 ## SRO::ReaderWriter class
 
-When created an SRO::ReaderWriter object adds getters and setters to itself
+When created, an SRO::ReaderWriter object adds getters and setters to itself
 ```ruby
 (main)>  rw = SRO::ReaderWriter.new(hello: "world", seeya: nil)
 => #<SRO::ReaderWriter:0x007fed5b9ea638 @hello="world", @seeya=nil>
