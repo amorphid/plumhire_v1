@@ -5,10 +5,11 @@ describe ToParamInjector do
 
   context "#inject_to_param" do
     it "overrides to_param method" do
-      object   = SRO::ReaderWriter.new(to_param: "not uuid")
+      uuid     = Version5UuidConstructor.new.response
+      object   = SRO::ReaderWriter.new(to_param: "not uuid", uuid: uuid)
       subject.inject_to_param(object)
       to_param = object.to_param
-      expect(to_param).to eq("uuid")
+      expect(to_param).to eq(uuid)
     end
   end
 end
