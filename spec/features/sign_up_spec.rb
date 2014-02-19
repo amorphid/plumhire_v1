@@ -7,7 +7,7 @@ feature "Signing up" do
     given(:email) { Faker::Internet.email }
 
     background do
-      fill_in "sign_in_email", with: email
+      fill_in "sign_up_email", with: email
       click_button("Submit")
     end
 

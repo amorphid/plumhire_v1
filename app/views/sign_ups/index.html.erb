@@ -2,9 +2,13 @@
   Sign Up
 </h1>
 
-<%= form_for create_or_update_sign_up_path(@sign_up) do |f| %>
+<%= form_for @sign_up, url: sign_up_path(@sign_up), method: :put do |f| %>
   <p>
     <%= f.label :email %>
     <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.submit "Submit" %>
   </p>
 <% end %>
