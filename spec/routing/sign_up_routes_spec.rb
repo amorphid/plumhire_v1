@@ -1,22 +1,18 @@
 require "spec_helper"
 
-describe "Route" do
-  context "sign_ups_path" do
-    it "routes to SignUpsController#index" do
-      expect(get: "/sign_ups").to route_to(
-        controller: "sign_ups",
-        action: "index"
-      )
-    end
+describe "SignUp route" do
+  it "GET /sign_ups routes to index" do
+    expect(get: "/sign_ups").to route_to(
+      controller: "sign_ups",
+      action: "index"
+    )
   end
 
-  context "create_or_update_sign_up_path" do
-    it "routes to SignUpsController#create_or_update" do
-      expect(put: "/sign_ups/:id/create_or_update").to route_to(
-        controller: "sign_ups",
-        id:         ":id",
-        action:     "create_or_update"
-      )
-    end
+  it "PUT /sign_ups:/id routes to update" do
+    expect(put: "/sign_ups/:id").to route_to(
+      controller: "sign_ups",
+      id:         ":id",
+      action:     "update"
+    )
   end
 end
