@@ -16,5 +16,13 @@ describe SignUpsController do
       assignment = assigns(:sign_up)
       expect(assignment).to be_instance_of(SignUp)
     end
+
+    it "creates a SignUp" do
+      pre_count    = SignUp.count
+      sign_up      = Fabricate.build(:sign_up)
+      put :update, sign_up: sign_up.attributes, id: sign_up.uuid
+      post_count   = SignUp.count
+      expect(post_count).to eq(pre_count + 1)
+    end
   end
 end
