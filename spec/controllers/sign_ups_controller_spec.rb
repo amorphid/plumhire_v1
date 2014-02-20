@@ -24,5 +24,13 @@ describe SignUpsController do
       post_count   = SignUp.count
       expect(post_count).to eq(pre_count + 1)
     end
+
+    it "updates a SignUp" do
+      sign_up = Fabricate(:sign_up, email: "a@b.c")
+      sign_up.email = "1@2.3"
+      put :update, sign_up: sign_up.attributes, id: sign_up.uuid
+      email = SignUp.find_by(uuid: sign_up.uuid).email
+      expect(email).to eq("1@2.3")
+    end
   end
 end
