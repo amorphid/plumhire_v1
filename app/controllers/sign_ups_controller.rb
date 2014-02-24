@@ -4,6 +4,7 @@ class SignUpsController < ApplicationController
   end
 
   def update
+    binding.pry
     uuid     = params_sign_up[:uuid]
     @sign_up = SignUp.find_or_create_by(uuid: uuid)
     @sign_up.update_attributes(params_sign_up)
