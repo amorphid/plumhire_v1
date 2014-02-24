@@ -1,6 +1,6 @@
 class SignUpsController < ApplicationController
   def index
-    @sign_up = SignUpConstructor.new.response
+    @sign_up = SignUp.new
   end
 
   def update
