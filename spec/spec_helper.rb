@@ -18,5 +18,6 @@ RSpec.configure do |config|
 end
 
 # for testing Sro::Mock::ActiveRecordModel
-ActiveRecord::Migration.create_table :active_record_models,
-                                     temporary: true
+ActiveRecord::Migration.create_table :active_record_models, temporary: true do |t|
+  t.uuid :uuid
+end
