@@ -18,4 +18,5 @@ RSpec.configure do |config|
 end
 
 # for testing Sro::Mock::ActiveRecordModel
-ActiveRecord::Migration.create_table :active_record_models
+ActiveRecord::Migration.create_table :active_record_models,
+                                     temporary: true
