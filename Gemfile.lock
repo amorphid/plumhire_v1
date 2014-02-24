@@ -1,3 +1,12 @@
+GIT
+  remote: git@github.com:amorphid/sro.git
+  revision: 62f9f2e48b19d74229501070e4730aa1ecfddfd0
+  branch: master
+  specs:
+    sro (0.0.2)
+      activerecord (~> 4.0.2)
+      uuidtools (~> 2.1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -171,6 +180,7 @@ DEPENDENCIES
   sass-rails (= 4.0.1)
   sdoc (= 0.4.0)
   sidekiq (= 2.17.6)
+  sro!
   turbolinks (= 2.2.1)
   uglifier (= 2.4.0)
   uuidtools (= 2.1.4)
