@@ -2,8 +2,7 @@ class SignUp < ActiveRecord::Base
   after_initialize :set_uuid
 
   validates :email,
-            presence: true,
-            uniqueness: true
+            presence: true
 
   validates :uuid, presence: true, uniqueness: true
 
