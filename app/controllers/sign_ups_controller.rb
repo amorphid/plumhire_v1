@@ -1,14 +1,13 @@
 class SignUpsController < ApplicationController
-  def index
+  def new
     @sign_up = SignUp.new
   end
 
   def update
-    binding.pry
     uuid     = params_sign_up[:uuid]
     @sign_up = SignUp.find_or_create_by(uuid: uuid)
     @sign_up.update_attributes(params_sign_up)
-    redirect_to sign_ups_path
+    redirect_to new_sign_up_path
   end
 
 private

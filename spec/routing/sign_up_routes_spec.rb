@@ -1,10 +1,10 @@
 require "spec_helper"
 
 describe "SignUp route" do
-  it "GET /sign_ups routes to index" do
-    expect(get: "/sign_ups").to route_to(
+  it "GET /sign_ups/new routes to new" do
+    expect(get: "/sign_ups/new").to route_to(
       controller: "sign_ups",
-      action: "index"
+      action: "new"
     )
   end
 
