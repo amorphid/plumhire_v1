@@ -129,6 +129,8 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    shoulda-matchers (2.3.0)
+      activesupport (>= 3.0.0)
     sidekiq (2.17.6)
       celluloid (>= 0.15.2)
       connection_pool (>= 1.0.0)
@@ -179,6 +181,7 @@ DEPENDENCIES
   rspec-rails (= 2.14.1)
   sass-rails (= 4.0.1)
   sdoc (= 0.4.0)
+  shoulda-matchers (= 2.3.0)
   sidekiq (= 2.17.6)
   sro!
   turbolinks (= 2.2.1)

@@ -22,4 +22,5 @@ group :development, :test do
   gem "fabrication", "2.9.6"
   gem "faker", "1.2.0"
   gem "rspec-rails", "2.14.1"
+  gem "shoulda-matchers", "2.3.0"
 end
