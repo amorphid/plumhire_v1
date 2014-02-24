@@ -24,4 +24,12 @@ describe SignUp do
       expect(uuid1).to eq(uuid2)
     end
   end
+
+  context "#to_param" do
+    it "returns a valid UUID" do
+      to_param = Fabricate(:sign_up).to_param
+      pattern  = Sro::Uuid.pattern
+      expect(to_param).to match(pattern)
+    end
+  end
 end
