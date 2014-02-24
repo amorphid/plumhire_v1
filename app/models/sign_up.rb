@@ -1,4 +1,4 @@
-class SignUp < ActiveRecord::Base
+class SignUp < ApplicationModel
   after_initialize :set_uuid
 
   validates :email,
@@ -7,12 +7,4 @@ class SignUp < ActiveRecord::Base
   validates :uuid,
             presence: true,
             uniqueness: true
-
-  def set_uuid
-    self.uuid ||= Sro::Uuid.version5
-  end
-
-  def to_param
-    uuid
-  end
 end
