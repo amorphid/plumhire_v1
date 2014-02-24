@@ -1,6 +1,7 @@
 class SignUp < ActiveRecord::Base
   validates :email,
-            presence: true
+            presence: true,
+            uniqueness: true
 
   validates :uuid, presence: true, uniqueness: true
 end
