@@ -4,7 +4,9 @@ class SignUp < ActiveRecord::Base
   validates :email,
             presence: true
 
-  validates :uuid, presence: true, uniqueness: true
+  validates :uuid,
+            presence: true,
+            uniqueness: true
 
   def set_uuid
     self.uuid ||= Sro::Uuid.version5
