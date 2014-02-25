@@ -4,9 +4,8 @@ class SignUpsController < ApplicationController
   end
 
   def update
-    uuid     = params_sign_up[:uuid]
-    @sign_up = SignUp.find_or_create_by(uuid: uuid)
-    @sign_up.update_attributes(params_sign_up)
+    @sign_up = SignUp.find_or_create_by(uuid: params_sign_up[:uuid])
+    @sign_up.update(params_sign_up)
     redirect_to new_sign_up_path
   end
 
