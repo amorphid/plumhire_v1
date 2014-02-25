@@ -8,6 +8,14 @@ describe "SignUp route" do
     )
   end
 
+  it "GET /sign_ups/:id routes to show" do
+    expect(get: "/sign_ups/:id").to route_to(
+      controller: "sign_ups",
+      action: "show",
+      id:     ":id"
+    )
+  end
+
   it "PUT /sign_ups:/id routes to update" do
     expect(put: "/sign_ups/:id").to route_to(
       controller: "sign_ups",
