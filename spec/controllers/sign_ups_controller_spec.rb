@@ -49,10 +49,10 @@ describe SignUpsController do
     end
 
     it "sets email_sent_on when email sent" do
-      sign_up   = Fabricate.build(:sign_up)
+      sign_up       = Fabricate.build(:sign_up)
       put :update, id: sign_up.uuid, sign_up: sign_up.attributes
-      timestamp = sign_up.email_sent_on
-      expect(timestamp).be instance_of(ActiveSupport::TimeWithZone)
+      email_sent_on = SignUp.find_by(uuid: sign_up.uuid).email_sent_on
+      expect(email_sent_on).to be_instance_of(ActiveSupport::TimeWithZone)
     end
 
     it "creates error on @sign_up with invalid input" do
