@@ -48,6 +48,13 @@ describe SignUpsController do
       expect(ActionMailer::Base.deliveries).not_to be_empty
     end
 
+    it "sets email_sent_on when email sent" do
+      sign_up   = Fabricate.build(:sign_up)
+      put :update, id: sign_up.uuid, sign_up: sign_up.attributes
+      timestamp = sign_up.email_sent_on
+      expect(timestamp).be instance_of(ActiveSupport::TimeWithZone)
+    end
+
     it "creates error on @sign_up with invalid input" do
       sign_up = Fabricate.build(:sign_up, email: nil)
       put :update, id: sign_up.uuid, sign_up: sign_up.attributes
