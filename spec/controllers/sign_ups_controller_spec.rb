@@ -11,7 +11,7 @@ describe SignUpsController do
 
   context "#show" do
     it "sets @sign_up" do
-      sign_up = Fabricate.build(:sign_up)
+      sign_up = Fabricate(:sign_up)
       get :show, sign_up: sign_up.attributes, id: sign_up.uuid
       assignment = assigns(:sign_up)
       expect(assignment).to be_instance_of(SignUp)
