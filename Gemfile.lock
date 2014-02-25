@@ -1,7 +1,6 @@
 GIT
-  remote: git@github.com:amorphid/sro.git
+  remote: git://github.com/amorphid/sro.git
   revision: 62f9f2e48b19d74229501070e4730aa1ecfddfd0
-  branch: master
   specs:
     sro (0.0.2)
       activerecord (~> 4.0.2)
