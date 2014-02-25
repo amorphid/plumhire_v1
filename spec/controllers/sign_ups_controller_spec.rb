@@ -39,5 +39,11 @@ describe SignUpsController do
       assignment = assigns(:sign_up)
       expect(assignment).to have(1).errors
     end
+
+    it "redirects to sign_up_path(@sign_up) with valid input" do
+      sign_up = Fabricate.build(:sign_up)
+      put :update, id: sign_up.uuid, sign_up: sign_up.attributes
+      expect(current_path).to eq(sign_in_path(@sign_up))
+    end
   end
 end
