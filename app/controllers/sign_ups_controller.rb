@@ -7,7 +7,7 @@ class SignUpsController < ApplicationController
     @sign_up = SignUp.find_or_create_by(uuid: params_sign_up[:uuid])
 
     if @sign_up.update(params_sign_up)
-      redirect_to new_sign_up_path
+      redirect_to sign_up_path(@sign_up)
     else
       render action: "new"
     end
