@@ -13,17 +13,13 @@ feature "Signing up" do
       message = "Confirmation email sent to " + email
       expect(body).to have_content(message)
     end
+  end
 
+  context "without email" do
     scenario "displays failure message" do
       click_button("Submit")
       body    = page.body
       expect(body).to have_content("Email can't be blank")
     end
-
-    scenario "creates a SignUp"
-  end
-
-  context "without email" do
-    scenario "displays error message"
   end
 end
