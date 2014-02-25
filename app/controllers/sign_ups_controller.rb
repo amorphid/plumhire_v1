@@ -4,12 +4,13 @@ class SignUpsController < ApplicationController
   end
 
   def show
-    @sign_up = SignUp.find_by(uuid: params_sign_up[:uuid])
+    @sign_up = SignUp.find_by(uuid: params[:id])
   end
 
   def update
     @sign_up = SignUp.find_or_create_by(uuid: params_sign_up[:uuid])
     if @sign_up.update(params_sign_up)
+      flash[:notice] = "Confirmation email sent to " + @sign_up.email
       redirect_to sign_up_path(@sign_up)
     else
       render action: "new"
