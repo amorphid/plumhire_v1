@@ -16,6 +16,10 @@
   <% end %>
 
   <p>
+    <%= f.hidden_field :uuid, value: @sign_up.uuid %>
+  </p>
+
+  <p>
     <%= f.label :email %>
     <%= f.text_field :email %>
   </p>
