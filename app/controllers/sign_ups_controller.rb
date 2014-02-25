@@ -22,7 +22,7 @@ class SignUpsController < ApplicationController
 private
 
   def send_set_password_email
-    AppMailer.set_password(@sign_up).deliver
+    AppMailer.delay.set_password(@sign_up)
     @sign_up.update(email_sent_on: DateTime.now)
   end
 
