@@ -3,10 +3,11 @@ class AppMailer < ActionMailer::Base
 
   def set_password(sign_up)
     @sign_up = sign_up
+    @subject = "[Plumhire] Set password to access account"
 
     mail(
       to: @sign_up.email,
-      subject: "[Plumhire] Please set password"
+      subject: @subject
     )
   end
 end
