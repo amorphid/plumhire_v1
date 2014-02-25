@@ -42,6 +42,12 @@ describe SignUpsController do
       expect(email).to eq("1@2.3")
     end
 
+    it "sends user an email with valid input" do
+      sign_up = Fabricate.build(:sign_up)
+      put :update, id: sign_up.uuid, sign_up: sign_up.attributes
+      expect(ActionMailer::Base.deliveries).not_to be_empty
+    end
+
     it "creates error on @sign_up with invalid input" do
       sign_up = Fabricate.build(:sign_up, email: nil)
       put :update, id: sign_up.uuid, sign_up: sign_up.attributes
