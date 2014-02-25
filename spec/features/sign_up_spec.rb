@@ -6,18 +6,16 @@ feature "Signing up" do
   context "with email" do
     given(:email) { Faker::Internet.email }
 
-    background do
+    scenario "displays success message" do
       fill_in "sign_up_email", with: email
       click_button("Submit")
-    end
-
-    scenario "displays success message" do
       body    = page.body
       message = "Confirmation email sent to " + email
       expect(body).to have_content(message)
     end
 
     scenario "displays failure message" do
+      click_button("Submit")
       body    = page.body
       expect(body).to have_content("Email can't be blank")
     end

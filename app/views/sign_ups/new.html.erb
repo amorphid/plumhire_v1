@@ -3,6 +3,18 @@
 </h1>
 
 <%= form_for @sign_up, url: sign_up_path(@sign_up), method: :put do |f| %>
+  <% if @sign_up.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sign_up.errors.count, "error") %> prohibited this sign_up from being created:</h2>
+
+      <ul>
+      <% @sign_up.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :email %>
     <%= f.text_field :email %>

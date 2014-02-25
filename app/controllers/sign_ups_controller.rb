@@ -5,8 +5,12 @@ class SignUpsController < ApplicationController
 
   def update
     @sign_up = SignUp.find_or_create_by(uuid: params_sign_up[:uuid])
-    @sign_up.update(params_sign_up)
-    redirect_to new_sign_up_path
+
+    if @sign_up.update(params_sign_up)
+      redirect_to new_sign_up_path
+    else
+      render action: "new"
+    end
   end
 
 private
