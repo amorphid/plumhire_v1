@@ -32,5 +32,12 @@ describe SignUpsController do
       email = SignUp.find_by(uuid: sign_up.uuid).email
       expect(email).to eq("1@2.3")
     end
+
+    it "creates error on @sign_up with invalid input" do
+      sign_up = Fabricate.build(:sign_up, email: nil)
+      put :update, id: sign_up.uuid, sign_up: sign_up.attributes
+      assignment = assigns(:sign_up)
+      expect(assignment).to have(1).errors
+    end
   end
 end
