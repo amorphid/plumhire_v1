@@ -10,6 +10,7 @@ class SignUpsController < ApplicationController
   def update
     @sign_up = SignUp.find_or_create_by(uuid: params_sign_up[:uuid])
     if @sign_up.update(params_sign_up)
+      AppMailer.set_password(@sign_up).deliver
       flash[:notice] = "Confirmation email sent to " + @sign_up.email
       redirect_to sign_up_path(@sign_up)
     else
