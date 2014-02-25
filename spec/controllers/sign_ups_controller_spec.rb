@@ -42,7 +42,7 @@ describe SignUpsController do
       expect(email).to eq("1@2.3")
     end
 
-    it "sends user an email with valid input" do
+    it "sends user an email w/ valid input if email_sent_on is blank" do
       sign_up = Fabricate.build(:sign_up)
       put :update, id: sign_up.uuid, sign_up: sign_up.attributes
       expect(ActionMailer::Base.deliveries).not_to be_empty
@@ -53,6 +53,12 @@ describe SignUpsController do
       put :update, id: sign_up.uuid, sign_up: sign_up.attributes
       email_sent_on = SignUp.find_by(uuid: sign_up.uuid).email_sent_on
       expect(email_sent_on).to be_instance_of(ActiveSupport::TimeWithZone)
+    end
+
+    it "does not send an email if email_sent_on exists" do
+      sign_up = Fabricate(:sign_up, email_sent_on: DateTime.now)
+      put :update, id: sign_up.uuid, sign_up: sign_up.attributes
+      expect(ActionMailer::Base.deliveries).to be_empty
     end
 
     it "creates error on @sign_up with invalid input" do
