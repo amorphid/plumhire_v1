@@ -11,6 +11,11 @@ class SignUpsController < ApplicationController
     @sign_up = SignUp.find_or_create_by(uuid: params_sign_up[:uuid])
 
     if @sign_up.update(params_sign_up)
+      User.create(
+        email: params_sign_up[:email],
+        password: params_sign_up[:password]
+      ) unless @sign_up.user
+
       send_set_password_email unless @sign_up.email_sent_on
       flash[:notice] = "Confirmation email sent to " + @sign_up.email
       redirect_to sign_up_path(@sign_up)
