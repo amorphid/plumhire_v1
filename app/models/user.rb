@@ -4,5 +4,6 @@ class User < ApplicationModel
             uniqueness: true
 
   validates :uuid,
-            presence: true
+            presence:   true,
+            uniqueness: true
 end
