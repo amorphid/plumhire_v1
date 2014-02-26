@@ -11,13 +11,8 @@ class SignUpsController < ApplicationController
     @s = SignUp.find_or_create_by(uuid: params_sign_up[:uuid])
 
     if @s.update(params_sign_up)
-      # User.create(
-      #   email: params_sign_up[:email],
-      #   password: params_sign_up[:password]
-      # ) unless @s.user
-
-      send_set_password_email unless @s.email_sent_on
-      flash[:notice] = "Confirmation email sent to " + @s.email
+      send_email_unless
+      flash[:notice] = set_notice
       redirect_to sign_up_path(@s)
     else
       render action: "new"
@@ -26,9 +21,15 @@ class SignUpsController < ApplicationController
 
 private
 
-  def send_set_password_email
-    AppMailer.delay.set_password(@s)
-    @s.update(email_sent_on: DateTime.now)
+  def set_notice
+    "Confirmation email sent to " + @s.email
+  end
+
+  def send_email_unless
+    unless @s.email_sent_on
+      AppMailer.delay.set_password(@s)
+      @s.update(email_sent_on: DateTime.now)
+    end
   end
 
   def params_sign_up

@@ -45,15 +45,6 @@ describe SignUpsController do
       expect(SignUp.find_by(uuid: s1.uuid).email).to eq("1@2.3")
     end
 
-    it "creates a User if SignUp has no User" do
-      count = User.count
-      s     = Fabricate.build(:sign_up)
-      put :update,
-          sign_up: s.attributes,
-          id:      s.uuid
-      expect(User.count).to eq(count + 1)
-    end
-
     it "sends user an email w/ valid input if email_sent_on is blank" do
       s = Fabricate.build(:sign_up)
       put :update,
