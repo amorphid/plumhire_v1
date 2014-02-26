@@ -1,14 +1,12 @@
 require "spec_helper"
 
 describe SignUp do
-  let(:new_sign_up) { SignUp.new          }
-  let(:sign_up)     { Fabricate(:sign_up) }
-
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:uuid)  }
 
-  it do
-    sign_up
-    should validate_uniqueness_of(:uuid)
+  it "validates the uniqueness of UUID" do
+    s1 = Fabricate(:sign_up)
+    s2 = Fabricate.build(:sign_up, uuid: s1.uuid)
+    expect(s2).to have(1).errors_on(:uuid)
   end
 end
