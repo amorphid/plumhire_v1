@@ -3,6 +3,10 @@ class ApplicationModel < ActiveRecord::Base
 
   after_initialize :set_uuid
 
+  validates :uuid,
+            presence:   true,
+            uniqueness: true
+
   def set_uuid
     self.uuid ||= Sro::Uuid.version5
   end

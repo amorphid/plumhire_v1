@@ -5,6 +5,14 @@ describe ApplicationModel do
 
   subject { Fabricate.build(:active_record_model) }
 
+  it { should validate_presence_of(:uuid) }
+
+  it "validates the uniqueness of UUID" do
+    a1 = Fabricate(:active_record_model)
+    a2 = Fabricate.build(:active_record_model, uuid: a1.uuid)
+    expect(a2).to have(1).errors_on(:uuid)
+  end
+
   context "#set_uuid" do
     it "creates UUID for new SignUp" do
       uuid    = subject.uuid
