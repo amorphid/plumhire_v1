@@ -21,3 +21,13 @@ ActionMailer::Base.smtp_settings = {
   authentication:       :plain,
   enable_starttls_auto: true
 }
+
+# Sidekiq client
+Sidekiq.configure_client do |config|
+  config.redis = { url: ENV["REDISCLOUD_URL"] }
+end
+
+# Sidekiq server
+Sidekiq.configure_server do |config|
+  config.redis = { url: ENV["REDISCLOUD_URL"] }
+end
