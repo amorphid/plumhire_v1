@@ -1,4 +1,5 @@
 class User < ApplicationModel
   validates :email,
-            presence: true
+            presence:   true,
+            uniqueness: true
 end
