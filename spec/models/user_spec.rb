@@ -6,5 +6,6 @@ describe User do
   it { should validate_uniqueness_of(:email) }
 
   #uuid
-  it { should validate_presence_of(:uuid) }
+  it { should validate_presence_of(:uuid)   }
+  it { should validate_uniqueness_of(:uuid) }
 end
