@@ -3,15 +3,15 @@ require "spec_helper"
 describe SignUpsController do
   context "#new" do
     it "sets @s" do
-      get :new
+      get :submit_email
       expect(assigns(:s)).to be_instance_of(SignUp)
     end
   end
 
-  context "#show" do
+  context "#email_sent" do
     it "sets @s" do
       s = Fabricate(:sign_up)
-      get :show,
+      get :email_sent,
           sign_up: s.attributes,
           id:      s.uuid
       expect(assigns(:s)).to be_instance_of(SignUp)
@@ -75,7 +75,7 @@ describe SignUpsController do
       put :update,
           sign_up: s.attributes,
           id:      s.uuid
-      expect(response).to redirect_to(sign_up_path(s))
+      expect(response).to redirect_to(email_sent_sign_up_path(s))
     end
   end
 end

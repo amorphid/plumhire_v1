@@ -10,6 +10,9 @@
 # logs
 /log/*.log
 
+# redis dump
+/dump.rdb
+
 # SQLite database(s)
 /db/*.sqlite3
 /db/*.sqlite3-journal

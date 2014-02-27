@@ -18,9 +18,9 @@ class SignUpsController < ApplicationController
     if @s.update(params_sign_up)
       send_email_unless
       flash[:notice] = set_notice
-      redirect_to sign_up_path(@s)
+      redirect_to email_sent_sign_up_path(@s)
     else
-      render action: "new"
+      render action: "submit_email"
     end
   end
 
