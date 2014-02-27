@@ -1,10 +1,15 @@
 class SignUpsController < ApplicationController
-  def new
+  before_action :set_sign_up,
+                only: [:email_sent, :set_password]
+
+  def submit_email
     @s = SignUp.new
   end
 
-  def show
-    @s = SignUp.find_by(uuid: params[:id])
+  def set_password
+  end
+
+  def email_sent
   end
 
   def update
@@ -23,6 +28,10 @@ private
 
   def set_notice
     "Confirmation email sent to " + @s.email
+  end
+
+  def set_sign_up
+    @s = SignUp.find_by(uuid: params[:id])
   end
 
   def send_email_unless
