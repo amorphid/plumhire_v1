@@ -1,17 +1,17 @@
 require "spec_helper"
 
-describe SignUpsController do
+describe SignUpEmailsController do
   context "#new" do
     it "sets @s" do
-      get :submit_email
+      get :new
       expect(assigns(:s)).to be_instance_of(SignUp)
     end
   end
 
-  context "#email_sent" do
+  context "#show" do
     it "sets @s" do
       s = Fabricate(:sign_up)
-      get :email_sent,
+      get :show,
           sign_up: s.attributes,
           id:      s.uuid
       expect(assigns(:s)).to be_instance_of(SignUp)
@@ -54,7 +54,7 @@ describe SignUpsController do
     end
 
     it "sets email_sent_on when email sent" do
-      s = Fabricate.build(:sign_up)
+      s = Fabricate.build(:sign_up, email: "a@b.c")
       put :update,
           sign_up: s.attributes,
           id:      s.uuid
@@ -62,8 +62,18 @@ describe SignUpsController do
         to be_instance_of(ActiveSupport::TimeWithZone)
     end
 
-    it "does not send an email if email_sent_on exists" do
-      s = Fabricate(:sign_up, email_sent_on: DateTime.now)
+    it "does not send an email if email_sent_on exists && repeat email" do
+      s1 = Fabricate(:sign_up, email: "a@b.c", email_sent_on: DateTime.now)
+      s2 = s1.attributes.dup
+      s2["email"] = "1@2.3"
+      put :update,
+          sign_up: s2,
+          id: s2["uuid"]
+      expect(ActionMailer::Base.deliveries).to be_empty
+    end
+
+    it "sends an email if email_sent_on exists && new email" do
+      s = Fabricate(:sign_up, email: "a@b.c", email_sent_on: DateTime.now)
       put :update,
           sign_up: s.attributes,
           id:      s.uuid
@@ -75,7 +85,7 @@ describe SignUpsController do
       put :update,
           sign_up: s.attributes,
           id:      s.uuid
-      expect(response).to redirect_to(email_sent_sign_up_path(s))
+      expect(response).to redirect_to(sign_up_email_path(s))
     end
   end
 end
