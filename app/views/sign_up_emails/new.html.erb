@@ -1,46 +1,44 @@
-<h1>
-  Sign Up Process
-</h1>
-
-<h3>
-  3 Steps
-</h3>
-
-<ol>
-  <li>
-    --&#62; Submit email &#60;--
-  </li>
-  <li>
-    Confirm email address
-  </li>
-  <li>
-    Set password
-  </li>
-</ol>
-
-<%= form_for @s, url: sign_up_email_path(@s), method: :put do |f| %>
-  <% if @s.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@s.errors.count, "error") %> prohibited this sign_up from being created:</h2>
-
-      <ul>
-      <% @s.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="account-wrapper">
+  <div class="account-body">
+    <h3>Sign Up</h3>
+    <h4>Step 1 of 3:  Submit email</h4>
+    <%= form_for @s,
+                 html: { class: "account-form form" },
+                 method: :put,
+                 url: sign_up_email_path(@s) do |f|
+    %>
+      <% if @s.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@s.errors.count, "error") %>
+            prohibited this sign_up from being created:
+          </h2>
+          <ul>
+            <% @s.errors.full_messages.each do |msg| %>
+              <li>
+                <%= msg %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= f.hidden_field :uuid, value: @s.uuid %>
-  </p>
-
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </p>
-
-  <p>
-    <%= f.submit "Submit" %>
-  </p>
-<% end %>
+      <%= f.hidden_field :uuid, value: @s.uuid %>
+      <div class="form-group">
+        <%= f.label :email,
+                    class: "placeholder-hidden"
+        %>
+        <%= f.text_field :email,
+                         class: "form-control",
+                         placeholder: "Your Email",
+                         tabindex: "1"
+        %>
+      </div>
+      <div class="form-group">
+        <%= f.button "Submit",
+                     class: "btn btn-block btn-lg btn-secondary",
+                     type: "submit"
+        %>
+      </div>
+    <% end %>
+  </div>
+</div>
