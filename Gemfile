@@ -16,12 +16,6 @@ gem "turbolinks", "2.2.1"
 gem "uglifier", "2.4.0"
 gem "uuidtools", "2.1.4"
 
-# Start => gems for twitter-bootstrap-rails
-gem "less-rails", "2.4.2"
-gem "therubyracer", "0.12.1"
-gem "twitter-bootstrap-rails", "2.2.8"
-# End => gems for twitter-bootstrap-rails
-
 group :doc do
   gem "sdoc", "0.4.0", require: false
 end
