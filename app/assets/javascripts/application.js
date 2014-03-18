@@ -17,8 +17,9 @@
 //= require mvpready-admin
 //= require mvpready-app
 //= require mvpready-core
-//= require jquery-1.10.2
 //
 // Default Rails JavsScripts
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
