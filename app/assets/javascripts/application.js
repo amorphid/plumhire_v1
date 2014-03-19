@@ -10,16 +10,19 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-// Default Rails JavsScripts
+// Default
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 //
-// MVP Ready JavaScripts
+// Gems
 //= require bootstrap
+//
+// MVP Ready theme
 //= require excanvas.compiled
 //= require mvpready-account
 //= require mvpready-admin
 //= require mvpready-app
 //= require mvpready-core
+//= require parsley

@@ -1,42 +1,50 @@
 <div class="account-wrapper">
   <div class="account-body">
-    <h3>Sign Up</h3>
-    <h4>Step 1 of 3:  Submit email</h4>
-    <%= form_for @s,
-                 html: { class: "account-form form" },
-                 method: :put,
-                 url: sign_up_email_path(@s) do |f|
+    <h3>
+      Sign Up
+    </h3>
+    <h4>
+      Step 1 of 3:  Submit email
+    </h4>
+    <%= form_for(
+        @s,
+        data: { parsley: "validate" },
+        html: { class: "account-form form" },
+        method: :put,
+        url: sign_up_email_path(@s)
+      ) do |f|
     %>
       <% if @s.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@s.errors.count, "error") %>
-            prohibited this sign_up from being created:
-          </h2>
-          <ul>
-            <% @s.errors.full_messages.each do |msg| %>
-              <li>
-                <%= msg %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+        <%= render "errors" %>
       <% end %>
-      <%= f.hidden_field :uuid, value: @s.uuid %>
+      <%= f.hidden_field(
+         :uuid,
+         value: @s.uuid
+       )
+      %>
       <div class="form-group">
-        <%= f.label :email,
-                    class: "placeholder-hidden"
+        <%= f.label(
+            :email,
+            class: "placeholder-hidden"
+          )
         %>
-        <%= f.text_field :email,
-                         class: "form-control",
-                         placeholder: "Your Email",
-                         tabindex: "1"
+        <%= f.text_field(
+            :email,
+            class: "form-control",
+            data: { required: "change" },
+            placeholder: "Your Email",
+            tabindex: "1",
+            type: "email"
+          )
         %>
       </div>
       <div class="form-group">
-        <%= f.button "Submit",
-                     class: "btn btn-block btn-lg btn-secondary",
-                     type: "submit"
+        <%= f.button(
+            "Submit",
+            class: "btn btn-block btn-lg btn-secondary",
+            tabindex: "2",
+            type: "submit"
+          )
         %>
       </div>
     <% end %>
