@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "bootstrap-sass", "3.1.1.0"
 gem "coffee-rails", "4.0.1"
 gem "figaro", "0.7.0"
 gem "foreman", "0.63.0"
