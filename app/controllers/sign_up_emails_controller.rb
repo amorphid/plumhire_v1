@@ -23,7 +23,7 @@ class SignUpEmailsController < ApplicationController
 
   def send_confirmation
     @s.update!(email_sent_on: DateTime.now)
-    AppMailer.delay.set_password(@s)
+    AppMailer.delay.create_password(@s)
   end
 
   def send_confirmation?
