@@ -10,6 +10,9 @@ Plumhire::Application.routes.draw do
 
   resources(
     :sign_up_passwords,
-    only: :edit
+    only: [
+      :edit,
+      :update
+    ]
   )
 end
