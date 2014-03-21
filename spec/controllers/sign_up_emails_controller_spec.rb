@@ -80,7 +80,7 @@ describe SignUpEmailsController do
       expect(ActionMailer::Base.deliveries).to be_empty
     end
 
-    it "redirects to sign_up_path(@sign_up) with valid input" do
+    it "redirects to sign_up_email_path(@sign_up) with valid input" do
       s = Fabricate.build(:sign_up)
       put :update,
           sign_up: s.attributes,
