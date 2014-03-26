@@ -47,7 +47,7 @@ describe SignUpPasswordsController do
         sign_up: s.attributes,
         id:      s.uuid
       )
-      expect(assigns[:sign_up]).to be_instance_of(SignUp)
+      expect(assigns[:user]).to be_instance_of(User)
     end
 
     it "creates a user" do
@@ -83,7 +83,7 @@ describe SignUpPasswordsController do
         id:       sign_up.uuid,
         password: "password"
       )
-      expect(response).to redirect_to(user_home_page(User.last))
+      expect(response).to redirect_to(user_home_page_path(User.last))
     end
   end
 end
