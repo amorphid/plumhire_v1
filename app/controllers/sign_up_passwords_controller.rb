@@ -5,5 +5,6 @@ class SignUpPasswordsController < ApplicationController
   end
 
   def update
+    @sign_up = SignUp.find_by(uuid: params[:id])
   end
 end
