@@ -8,7 +8,7 @@ class SignUpEmailsController < ApplicationController
   end
 
   def update
-    @s = SignUp.find_or_create_by(uuid: params[:id])
+    @s = SignUp.find_or_initialize_by(uuid: params[:id])
 
     if @s.update(sign_up_params)
       send_confirmation_if
@@ -29,7 +29,6 @@ class SignUpEmailsController < ApplicationController
   def send_confirmation?
     unless(
       @s.email_sent_on &&
-      sign_up_params[:email] == @s.email &&
       DateTime.now.to_i - @s.email_sent_on.to_i < 3
     )
       true
