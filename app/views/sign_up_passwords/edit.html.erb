@@ -17,6 +17,9 @@
         url: sign_up_password_path(@sign_up)
       ) do |f|
     %>
+      <% if @user && @user.errors.any? %>
+        <%= render "errors" %>
+      <% end %>
       <%= f.hidden_field(
          :id,
          value: @sign_up.uuid
@@ -32,7 +35,7 @@
         <input
           class="form-control"
           data-required="change"
-          id="password"
+          id="user_password"
           name="password"
           placeholder="Your password"
           tabindex="1"
