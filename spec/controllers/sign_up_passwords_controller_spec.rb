@@ -75,6 +75,15 @@ describe SignUpPasswordsController do
       expect(User.count).to eq(count)
     end
 
-    it "redirects"
+    it "redirects" do
+      sign_up = Fabricate(:sign_up)
+      put(
+        :update,
+        sign_up:  sign_up.attributes,
+        id:       sign_up.uuid,
+        password: "password"
+      )
+      expect(response).to redirect_to(user_home_page(User.last))
+    end
   end
 end
