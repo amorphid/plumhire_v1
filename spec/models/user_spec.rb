@@ -13,4 +13,8 @@ describe User do
       should validate_uniqueness_of(:email)
     end
   end
+
+  context "#password" do
+    it { should ensure_length_of(:password).is_at_least(8) }
+  end
 end
