@@ -16,6 +16,9 @@
 //= require turbolinks
 //= require_tree .
 //
+// Lib folder
+//= require form
+//
 // Gems
 //= require bootstrap
 //

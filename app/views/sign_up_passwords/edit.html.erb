@@ -9,7 +9,10 @@
     <%= form_for(
         @sign_up,
         data: { parsley: "validate" },
-        html: { class: "account-form form" },
+        html: {
+          class: "account-form form",
+          id: "edit_sign_up_#{@sign_up.uuid}"
+        },
         method: :put,
         url: sign_up_password_path(@sign_up)
       ) do |f|
