@@ -18,7 +18,7 @@ describe SignUpEmailsController do
     end
   end
 
-  context "#update" do
+  context "#update (w/ valid input)" do
     it "sets @sign_up" do
       s = Fabricate.build(:sign_up)
       put :update,
@@ -27,7 +27,7 @@ describe SignUpEmailsController do
       expect(assigns(:s)).to be_instance_of(SignUp)
     end
 
-    it "creates a SignUp if it doesn't exist" do
+    it "creates a SignUp" do
       count = SignUp.count
       s     = Fabricate.build(:sign_up)
       put :update,
@@ -36,7 +36,7 @@ describe SignUpEmailsController do
       expect(SignUp.count).to eq(count + 1)
     end
 
-    it "updates a SignUp if it does exist" do
+    it "updates a SignUp" do
       s1 = Fabricate(:sign_up, email: "a@b.c")
       s2 = Fabricate.build(:sign_up, email: "1@2.3", uuid: s1.uuid)
       put :update,
@@ -45,12 +45,35 @@ describe SignUpEmailsController do
       expect(SignUp.find_by(uuid: s1.uuid).email).to eq("1@2.3")
     end
 
-    it "sends user an email w/ valid input if email_sent_on is blank" do
+    it "sends 1 email w/ 1 put request" do
       s = Fabricate.build(:sign_up)
       put :update,
           sign_up: s.attributes,
           id:      s.uuid
-      expect(ActionMailer::Base.deliveries).not_to be_empty
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
+    end
+
+    it "sends 1 email w/ 2 put requests" do
+      s = Fabricate.build(:sign_up)
+      put :update,
+          sign_up: s.attributes,
+          id:      s.uuid
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
+    end
+
+    it "sends 2 emails w/ 2 put requests" do
+      s1 = Fabricate.build(:sign_up)
+      put :update,
+          sign_up: s1.attributes,
+          id:      s1.uuid
+      s2 = SignUp.find_by(uuid: s1.uuid)
+      s2.update(
+        email_sent_on: s2.email_sent_on - 3
+      )
+      put :update,
+          sign_up: s1.attributes,
+          id:      s1.uuid
+      expect(ActionMailer::Base.deliveries.count).to eq(2)
     end
 
     it "sets email_sent_on when email sent" do

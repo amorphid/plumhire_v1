@@ -27,7 +27,11 @@ class SignUpEmailsController < ApplicationController
   end
 
   def send_confirmation?
-    unless @s.email_sent_on && sign_up_params[:email] == @s.email
+    unless(
+      @s.email_sent_on &&
+      sign_up_params[:email] == @s.email &&
+      DateTime.now.to_i - @s.email_sent_on.to_i < 3
+    )
       true
     else
       false
