@@ -47,7 +47,7 @@ describe SignUpPasswordsController do
         sign_up: s.attributes,
         id:      s.uuid
       )
-      expect(assigns[:user]).to be_instance_of(User)
+      expect(assigns[:sign_up]).to be_instance_of(SignUp)
     end
     it "redirects"
     it "creates a user"
