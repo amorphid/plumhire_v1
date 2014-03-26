@@ -40,7 +40,15 @@ describe SignUpPasswordsController do
       expect(assigns[:sign_up]).to be_instance_of(SignUp)
     end
 
-    it "sets @user"
+    it "sets @user" do
+      s = Fabricate(:sign_up)
+      put(
+        :update,
+        sign_up: s.attributes,
+        id:      s.uuid
+      )
+      expect(assigns[:user]).to be_instance_of(User)
+    end
     it "redirects"
     it "creates a user"
     it "updates a user"
