@@ -15,4 +15,9 @@ Plumhire::Application.routes.draw do
       :update
     ]
   )
+
+  resources(
+    :user_home_pages,
+    only: :show
+  )
 end
