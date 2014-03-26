@@ -1,21 +1,16 @@
 require "spec_helper"
 
 describe User do
-  it { should validate_presence_of(:email) }
+  subject { User.new }
+
   it { should have_many(:sign_ups) }
 
-  it do
-    Fabricate(:user)
-    should validate_uniqueness_of(:email)
-  end
+  context "#email" do
+    it { should validate_presence_of(:email) }
 
-  it do
-    Fabricate(:user)
-    should validate_presence_of(:password)
-  end
-
-  it do
-    Fabricate(:user)
-    validate_presence_of(:password_confirmation)
+    it do
+      Fabricate(:user)
+      should validate_uniqueness_of(:email)
+    end
   end
 end
