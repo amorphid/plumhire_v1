@@ -8,7 +8,6 @@
     </h4>
     <%= form_for(
         @s,
-        data: { parsley: "validate" },
         html: { class: "account-form form" },
         method: :put,
         url: sign_up_email_path(@s)

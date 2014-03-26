@@ -8,7 +8,6 @@
     </h4>
     <%= form_for(
         @sign_up,
-        data: { parsley: "validate" },
         html: {
           class: "account-form form",
           id: "edit_sign_up_#{@sign_up.uuid}"
@@ -35,6 +34,7 @@
         <input
           class="form-control"
           data-required="change"
+          data-minlength="8"
           id="user_password"
           name="password"
           placeholder="Your password"
