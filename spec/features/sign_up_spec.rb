@@ -17,7 +17,7 @@ feature "Signing up" do
     current_email.click_link("click here")
 
     # /sign_up_passwords/new
-    fill_in "user_password", with: "password"
+    fill_in "password", with: "password"
     click_button("Submit")
 
     # /home

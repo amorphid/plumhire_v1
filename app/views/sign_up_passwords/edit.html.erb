@@ -7,44 +7,34 @@
       Step 3 of 3: Create password
     </h4>
     <%= form_for(
-        @user,
+        @sign_up,
         data: { parsley: "validate" },
         html: { class: "account-form form" },
         method: :put,
         url: sign_up_password_path(@sign_up)
       ) do |f|
     %>
-      <% if @user.errors.any? %>
-        <div class="alert alert-danger">
-          <div id="error_explanation">
-              <% @user.errors.full_messages.each do |msg| %>
-                <li>
-                  <%= msg %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      <% end %>
       <%= f.hidden_field(
          :id,
-         value: @user.uuid
+         value: @sign_up.uuid
        )
       %>
       <div class="form-group">
-        <%= f.label(
-            :password,
-            class: "placeholder-hidden"
-          )
-        %>
-        <%= f.text_field(
-            :password,
-            class: "form-control",
-            data: { required: "change" },
-            placeholder: "Your Password",
-            tabindex: "1",
-          )
-        %>
+        <label
+          class="placeholder-hidden"
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          class="form-control"
+          data-required="change"
+          id="password"
+          name="password"
+          placeholder="Your password"
+          tabindex="1"
+          type="text"
+        />
       </div>
       <div class="form-group">
         <%= f.button(

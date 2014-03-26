@@ -5,6 +5,7 @@ class SignUpPasswordsController < ApplicationController
   end
 
   def update
+    binding.pry
     @sign_up = SignUp.find_by(uuid: params[:id])
     @user    = User.find_or_initialize_by(email: sign_up_params[:email])
     @user.password              = params[:password]
