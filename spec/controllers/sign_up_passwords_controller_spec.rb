@@ -62,7 +62,19 @@ describe SignUpPasswordsController do
       expect(User.count).to eq(count + 1)
     end
 
-    it "updates a user"
+    it "updates a user" do
+      sign_up = Fabricate(:sign_up)
+      Fabricate(:user, email: sign_up.email)
+      count = User.count
+      put(
+        :update,
+        sign_up:  sign_up.attributes,
+        id:       sign_up.uuid,
+        password: "password"
+      )
+      expect(User.count).to eq(count)
+    end
+
     it "redirects"
   end
 end

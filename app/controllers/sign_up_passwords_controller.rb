@@ -7,7 +7,7 @@ class SignUpPasswordsController < ApplicationController
   def update
     @sign_up = SignUp.find_by(uuid: params[:id])
     @user    = User.find_or_initialize_by(email: sign_up_params[:email])
-    @user.password = params[:password]
+    @user.password              = params[:password]
     @user.password_confirmation = params[:password]
     @user.save
   end
