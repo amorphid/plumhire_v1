@@ -11,7 +11,7 @@ feature "Signing up" do
     expect(page.body).to have_content("Hey #{email},")
     open_email(email)
     current_email.click_link("click here")
-    fill_in "password", with: "password"
+    fill_in :sign_up_password, with: "password"
     click_button("Submit")
     expect(page.body).to have_content(
       "Sign Up successful, and you're now logged in, too!"

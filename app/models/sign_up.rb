@@ -3,4 +3,7 @@ class SignUp < ApplicationModel
 
   validates :email,
             presence: true
+
+  def password
+  end
 end

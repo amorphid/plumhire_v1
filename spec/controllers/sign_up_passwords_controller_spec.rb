@@ -40,35 +40,42 @@ describe SignUpPasswordsController do
     it "creates a user" do
       count = User.count
       sign_up = Fabricate(:sign_up)
+      sign_up_attr = sign_up.attributes
+      sign_up_attr["password"] = "password"
       put(
         :update,
-        sign_up:  sign_up.attributes,
-        id:       sign_up.uuid,
-        password: "password"
+        sign_up:  sign_up_attr,
+        id:       sign_up_attr["uuid"]
       )
       expect(User.count).to eq(count + 1)
     end
 
     it "updates a user" do
+      user1 = Fabricate(
+        :user,
+        password:              "password1",
+        password_confirmation: "password1"
+      )
       sign_up = Fabricate(:sign_up)
-      Fabricate(:user, email: sign_up.email)
-      count = User.count
+      sign_up_attr = sign_up.attributes
+      sign_up_attr["password"] = "password2"
       put(
         :update,
-        sign_up:  sign_up.attributes,
-        id:       sign_up.uuid,
-        password: "password"
+        sign_up:  sign_up_attr,
+        id:       sign_up_attr["uuid"]
       )
-      expect(User.count).to eq(count)
+      user2 = assigns[:user].authenticate("password2")
+      expect(user2).to be_instance_of(User)
     end
 
     it "redirects" do
       sign_up = Fabricate(:sign_up)
+      sign_up_attr = sign_up.attributes
+      sign_up_attr["password"] = "password"
       put(
         :update,
-        sign_up:  sign_up.attributes,
-        id:       sign_up.uuid,
-        password: "password"
+        sign_up:  sign_up_attr,
+        id:       sign_up_attr["uuid"]
       )
       expect(response).to redirect_to(user_home_page_path(User.last))
     end

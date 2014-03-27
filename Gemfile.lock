@@ -198,7 +198,7 @@ DEPENDENCIES
   capybara (= 2.2.1)
   capybara-email (= 2.3.0)
   coffee-rails (= 4.0.1)
-  draper
+  draper (= 1.3.0)
   fabrication (= 2.9.6)
   faker (= 1.2.0)
   figaro (= 0.7.0)
