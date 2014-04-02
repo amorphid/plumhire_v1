@@ -2,11 +2,11 @@ class AppMailer < ActionMailer::Base
   default from: "mpope.cr@gmail.com"
 
   def sign_up_password_edit(sign_up)
-    @s       = sign_up
-    @subject = "[Plumhire] Sign Up / Step 2 of 3: Confirm email"
+    @sign_up = sign_up
+    @subject = "[Plumhire] Sign Up"
 
     mail(
-      to:      @s.email,
+      to:      @sign_up.email,
       subject: @subject
     )
   end
