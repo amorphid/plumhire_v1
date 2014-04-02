@@ -224,4 +224,3 @@ DEPENDENCIES
   sro!
   turbolinks (= 2.2.1)
   uglifier (= 2.4.0)
-  uuidtools (= 2.1.4)
