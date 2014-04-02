@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.1.0"
+ruby "2.1.1"
 
 gem "bootstrap-sass", "3.1.1.0"
 gem "bcrypt-ruby", "3.1.5"
@@ -32,4 +32,8 @@ group :development, :test do
   gem "faker", "1.2.0"
   gem "rspec-rails", "2.14.1"
   gem "shoulda-matchers", "2.3.0"
+end
+
+group :production do
+  gem "rails_12factor", "0.0.2"
 end
