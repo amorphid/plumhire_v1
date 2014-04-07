@@ -19,10 +19,6 @@ gem "sro", :github => "amorphid/sro"
 gem "turbolinks", "2.2.1"
 gem "uglifier", "2.4.0"
 
-group :doc do
-  gem "sdoc", "0.4.0", require: false
-end
-
 group :development, :test do
   gem "capybara", "2.2.1"
   gem "capybara-email", "2.3.0"
@@ -30,6 +26,10 @@ group :development, :test do
   gem "faker", "1.2.0"
   gem "rspec-rails", "2.14.2"
   gem "shoulda-matchers", "2.3.0"
+end
+
+group :doc do
+  gem "sdoc", "0.4.0", require: false
 end
 
 group :production do
