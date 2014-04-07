@@ -11,9 +11,11 @@
                             media: "all",
                             "data-turbolinks-track" => true
     %>
+    <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_include_tag "application",
                                "data-turbolinks-track" => true
     %>
+    <%= javascript_include_tag params[:controller] %>
     <%= csrf_meta_tags %>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -57,6 +59,18 @@
         </nav>
       </div>
     </header>
-    <%= yield %>
+    <div class="content">
+      <div class="container">
+        <section class="demo-section">
+          <% if flash[:success] %>
+            <br />
+            <div class="alert alert-success">
+              <%= flash[:success] %>
+            </div>
+          <% end %>
+        </section>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
