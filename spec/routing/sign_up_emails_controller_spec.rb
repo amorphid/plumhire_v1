@@ -1,7 +1,6 @@
 require "spec_helper"
 
 describe SignUpEmailsController do
-
   it do
     should route(:get, "/sign_up_emails/new").to(
       controller: "sign_up_emails",
