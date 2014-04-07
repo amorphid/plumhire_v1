@@ -1,4 +1,9 @@
 Plumhire::Application.routes.draw do
+resources(
+    :jobs,
+    only: :new
+  )
+
   resources(
     :sign_up_emails,
     only: [
