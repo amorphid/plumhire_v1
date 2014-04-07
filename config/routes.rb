@@ -1,5 +1,8 @@
 Plumhire::Application.routes.draw do
-resources(
+
+  root to: "front_pages#index"
+
+  resources(
     :jobs,
     only: :new
   )
