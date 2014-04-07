@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226205506) do
+ActiveRecord::Schema.define(version: 20140407183647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "jobs", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.uuid     "uuid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "jobs", ["body"], name: "index_jobs_on_body", using: :btree
+  add_index "jobs", ["created_at"], name: "index_jobs_on_created_at", using: :btree
+  add_index "jobs", ["title"], name: "index_jobs_on_title", using: :btree
+  add_index "jobs", ["updated_at"], name: "index_jobs_on_updated_at", using: :btree
+  add_index "jobs", ["uuid"], name: "index_jobs_on_uuid", using: :btree
 
   create_table "sign_ups", force: true do |t|
     t.string   "email"
