@@ -17,14 +17,18 @@
 //
 // Lib folder
 //= require form
+//= require textarea
 //
 // Gems
 //= require bootstrap
 //
-// MVP Ready theme
+// Vendor folder
+//   MVP Ready theme
 //= require excanvas.compiled
 //= require mvpready-account
 //= require mvpready-admin
 //= require mvpready-app
 //= require mvpready-core
 //= require parsley
+//=   Autosize
+//= require autosize
