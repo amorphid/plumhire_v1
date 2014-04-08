@@ -18,7 +18,6 @@
  *
  * Default Rails stylesheets
  *= require_self
- *= require_tree .
  */
 
 body {
