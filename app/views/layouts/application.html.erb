@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>
@@ -14,16 +13,18 @@
     <%= stylesheet_link_tag(ENV["webfonts"]
       )
     %>
-    <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_include_tag(
         "application",
         "data-turbolinks-track" => true
       )
     %>
-    <%= javascript_include_tag params[:controller] %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <header>
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      </nav>
+    </header>
     <% if flash[:success] %>
       <%= flash[:success] %>
     <% end %>
@@ -31,7 +32,7 @@
       <div class="row">
         <div class="col-md-1">
         </div>
-        <div class="col-md-10 content">
+        <div class="col-md-10">
           <%= yield %>
         </div>
         <div class="col-md-1">
