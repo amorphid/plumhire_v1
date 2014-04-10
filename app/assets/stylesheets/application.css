@@ -12,6 +12,10 @@
  *= require_self
  */
 
+body {
+  font-family:'ITC American Typewriter W02';
+}
+
 .animated-vertical {
   -webkit-transition: height 0.2s;
   -moz-transition: height 0.2s;

@@ -11,6 +11,9 @@
         "data-turbolinks-track" => true
       )
     %>
+    <%= stylesheet_link_tag(ENV["webfonts"]
+      )
+    %>
     <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_include_tag(
         "application",
