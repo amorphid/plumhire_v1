@@ -1,41 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-10 content-body">
-      <%= image_tag(
-        "text_logo-705×189.png",
-        alt: "Responsive image",
-        class: "center-block img-responsive"
-      )%>
-      <br />
-      <br />
-      <br />
-      <div class="text-center">
-        <h1>
-          A simple, intuitive applicant tracking system
-        </h1>
-        <br />
-        <br />
-        <br />
-        <br />
-        <h1>
-          <a href="">
-            Sign in
-          </a>
-          &nbsp;|&nbsp;
-          <%= link_to(
-            "Sign up",
-            new_sign_up_email_path
-            )
-          %>
-        </h1>
-        <br />
-        <br />
-        <br />
-      </div>
-    </div>
-    <div class="col-md-1">
-    </div>
-  </div>
-</div>
+<%= image_tag("text_logo-705×189.png") %>
+<h1>
+  A simple, intuitive applicant tracking system
+</h1>
+<h1>
+  <a href="">
+    Sign in
+  </a>
+  &nbsp;|&nbsp;
+  <%= link_to(
+    "Sign up",
+    new_sign_up_email_path
+    )
+  %>
+</h1>

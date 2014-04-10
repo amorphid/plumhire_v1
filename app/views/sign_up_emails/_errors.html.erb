@@ -1,10 +1,7 @@
-<div class="alert alert-danger">
-  <div id="error_explanation">
-      <% @s.errors.full_messages.each do |msg| %>
-        <li>
-          <%= msg %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
+</ul>
+  <% @s.errors.full_messages.each do |msg| %>
+    <li>
+      <%= msg %>
+    </li>
+  <% end %>
+</ul>

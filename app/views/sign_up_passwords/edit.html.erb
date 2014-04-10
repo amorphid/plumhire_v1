@@ -1,56 +1,41 @@
-<div class="account-wrapper">
-  <div class="account-body">
-    <h3>
-      Sign Up
-    </h3>
-    <h4>
-      Step 3 of 3: Create password
-    </h4>
-    <%= form_for(
-        @sign_up,
-        html: {
-          class: "account-form form",
-          id: "edit_sign_up_#{@sign_up.uuid}"
-        },
-        method: :put,
-        url: sign_up_password_path(@sign_up)
-      ) do |f|
-    %>
-      <% if @user && @user.errors.any? %>
-        <%= render "errors" %>
-      <% end %>
-      <%= f.hidden_field(
-         :id,
-         value: @sign_up.uuid
-       )
-      %>
-      <div class="form-group">
-        <%= f.label(
-            :password,
-            class: "placeholder-hidden"
-          )
-        %>
-        <%= f.password_field(
-            :password,
-            class: "form-control",
-            data: {
-              minlength: "8",
-              required: "change"
-            },
-            placeholder: "Your password",
-            tabindex: "1"
-          )
-        %>
-      </div>
-      <div class="form-group">
-        <%= f.button(
-            "Submit",
-            class: "btn btn-block btn-lg btn-secondary",
-            tabindex: "2",
-            type: "submit"
-          )
-        %>
-      </div>
-    <% end %>
-  </div>
-</div>
+<h3>
+  Sign Up
+</h3>
+
+<h4>
+  Step 3 of 3: Create password
+</h4>
+
+<%= form_for(
+    @sign_up,
+    html: {
+      id: "edit_sign_up_#{@sign_up.uuid}"
+    },
+    method: :put,
+    url: sign_up_password_path(@sign_up)
+  ) do |f|
+%>
+  <% if @user && @user.errors.any? %>
+    <%= render "errors" %>
+  <% end %>
+  <%= f.hidden_field(
+     :id,
+     value: @sign_up.uuid
+   )
+  %>
+  <%= f.label(:password) %>
+  <%= f.password_field(
+      :password,
+      data: {
+        minlength: "8",
+        required: "change"
+      },
+      tabindex: "1"
+    )
+  %>
+  <%= f.submit(
+      "Submit",
+      tabindex: "2"
+    )
+  %>
+<% end %>

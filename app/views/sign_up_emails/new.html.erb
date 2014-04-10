@@ -1,51 +1,36 @@
-<div class="account-wrapper">
-  <div class="account-body">
-    <h3>
-      Sign Up
-    </h3>
-    <h4>
-      Step 1 of 3: Submit email
-    </h4>
-    <%= form_for(
-        @s,
-        html: { class: "account-form form" },
-        method: :put,
-        url: sign_up_email_path(@s)
-      ) do |f|
-    %>
-      <% if @s.errors.any? %>
-        <%= render "errors" %>
-      <% end %>
-      <%= f.hidden_field(
-         :uuid,
-         value: @s.uuid
-       )
-      %>
-      <div class="form-group">
-        <%= f.label(
-            :email,
-            class: "placeholder-hidden"
-          )
-        %>
-        <%= f.text_field(
-            :email,
-            class: "form-control",
-            data: { required: "change" },
-            placeholder: "Your Email",
-            tabindex: "1",
-            type: "email"
-          )
-        %>
-      </div>
-      <div class="form-group">
-        <%= f.button(
-            "Submit",
-            class: "btn btn-block btn-lg btn-secondary",
-            tabindex: "2",
-            type: "submit"
-          )
-        %>
-      </div>
-    <% end %>
-  </div>
-</div>
+<h3>
+  Sign Up
+</h3>
+<h4>
+  Step 1 of 3: Submit email
+</h4>
+<%= form_for(
+    @s,
+    method: :put,
+    url: sign_up_email_path(@s)
+  ) do |f|
+%>
+  <% if @s.errors.any? %>
+    <%= render "errors" %>
+  <% end %>
+  <%= f.hidden_field(
+     :uuid,
+     value: @s.uuid
+   )
+  %>
+  <%= f.label(:email) %>
+  <%= f.text_field(
+      :email,
+      data: { required: "change" },
+      placeholder: "Your Email",
+      tabindex: "1"
+    )
+  %>
+  <%= f.button(
+      "Submit",
+      tabindex: "2",
+      type: "submit"
+    )
+  %>
+<% end %>
+

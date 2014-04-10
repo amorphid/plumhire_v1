@@ -10,25 +10,18 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-// Default
+// RAILS DEFAULTS
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //
-// Lib folder
+// LIB
 //= require form
 //= require textarea
 //
+// Vendor folder
+//= require parsley
+//= require autosize
+//
 // Gems
 //= require bootstrap
-//
-// Vendor folder
-//   MVP Ready theme
-//= require excanvas.compiled
-//= require mvpready-account
-//= require mvpready-admin
-//= require mvpready-app
-//= require mvpready-core
-//= require parsley
-//=   Autosize
-//= require autosize
