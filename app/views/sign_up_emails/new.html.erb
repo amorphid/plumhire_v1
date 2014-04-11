@@ -1,36 +1,58 @@
-<h3>
-  Sign Up
-</h3>
-<h4>
-  Step 1 of 3: Submit email
-</h4>
-<%= form_for(
-    @s,
-    method: :put,
-    url: sign_up_email_path(@s)
-  ) do |f|
-%>
-  <% if @s.errors.any? %>
-    <%= render "errors" %>
-  <% end %>
-  <%= f.hidden_field(
-     :uuid,
-     value: @s.uuid
-   )
+<div class="content page page-sign-up">
+   <%= image_tag(
+        "plum2-150x150.png",
+        alt: "Plumhire",
+        class: "center-block img-responsive"
+      )
+    %>
+    <br />
+    <br />
+  <h1 class="text-center">
+    Sign Up
+  </h1>
+  <%= form_for(
+      @s,
+      html: {
+        class: "form"
+      },
+      method: :put,
+      role: "form",
+      url: sign_up_email_path(@s)
+    ) do |f|
   %>
-  <%= f.label(:email) %>
-  <%= f.text_field(
-      :email,
-      data: { required: "change" },
-      placeholder: "Your Email",
-      tabindex: "1"
-    )
-  %>
-  <%= f.button(
-      "Submit",
-      tabindex: "2",
-      type: "submit"
-    )
-  %>
-<% end %>
+    <% if @s.errors.any? %>
+      <%= render("errors") %>
+    <% end %>
+    <%= f.hidden_field(
+       :uuid,
+       value: @s.uuid
+     )
+    %>
+    <div class="form-group">
+      <%= f.label(
+          :email,
+          class: "placeholder-hidden"
+        )
+      %>
+      <%= f.text_field(
+          :email,
+          class: "form-control input-lg",
+          # data: { required: "change" },
+          placeholder: "Email",
+          tabindex: "1"
+        )
+      %>
+    </div>
+    <div class="form-group">
+        <%= f.submit(
+          "Submit",
+          class: "btn btn-block btn-primary btn-lg",
+          tabindex: "2"
+        )
+      %>
+
+    </div>
+  <% end %><!-- form_for -->
+</div><!-- content -->
+
 
