@@ -6,3 +6,5 @@ class SignUp < ApplicationModel
   def password
   end
 end
+
+

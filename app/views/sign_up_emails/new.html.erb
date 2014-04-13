@@ -1,3 +1,5 @@
+<% provide(:title, "Sign up") %>
+
 <div class="content page page-sign-up">
    <%= image_tag(
         "plum2-150x150.png",
@@ -8,7 +10,7 @@
     <br />
     <br />
   <h1 class="text-center">
-    Sign Up
+    Sign up
   </h1>
   <%= form_for(
       @s,
@@ -37,7 +39,7 @@
       <%= f.text_field(
           :email,
           class: "form-control input-lg",
-          # data: { required: "change" },
+          data: { required: "change" },
           placeholder: "Email",
           tabindex: "1"
         )
