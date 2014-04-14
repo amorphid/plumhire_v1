@@ -87,7 +87,7 @@ body {
 
 /* parsley.js */
 
-.form-group .parsley-error-list {
+.parsley-errors-list {
   position: relative;
   top: 0;
   display: inline-block !important;
@@ -101,7 +101,7 @@ body {
   border-radius: 4px;
 }
 
-.form-group .parsley-error-list::after {
+.parsley-errors-list::after {
   content: '';
   display: inline-block;
   border-left: 6px solid transparent;
