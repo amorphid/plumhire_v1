@@ -16,7 +16,6 @@
 body {
   background-color: #eee;
   font-family: 'ITC American Typewriter W02';
-  padding-top: 70px;
 }
 
 /* alerts */
@@ -32,6 +31,13 @@ body {
   color: #ffffff;
   background-color: #ce312c;
   border-color: #b52b27;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.alert-success {
+  color: #ffffff;
+  background-color: #46a046;
+  border-color: #3d8b3d;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
@@ -53,6 +59,18 @@ body {
   border-color: #4b4167;
 }
 
+/* forms */
+
+.placeholder-hidden {
+  visibility:hidden;
+}
+
+/* navbar */
+
+.navbar {
+  border-radius: 0px;
+}
+
 /* pages */
 
 .page {
@@ -72,17 +90,13 @@ body {
   margin-top: 60px;
 }
 
-.page-sign-up {
+.page-type1 {
   padding: 35px;
   max-width: 400px;
 }
 
-.navbar {
-  border-radius: 0px;
-}
-
-.placeholder-hidden {
-  visibility:hidden;
+.page-type1 h1 {
+  text-align: center;
 }
 
 /* parsley.js */

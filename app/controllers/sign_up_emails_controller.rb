@@ -43,7 +43,7 @@ class SignUpEmailsController < ApplicationController
   end
 
   def set_notice
-    flash[:notice] = "Confirmation email sent to " + @s.email
+    flash[:success] = "Confirmation email sent to " + @s.email
   end
 
   def sign_up_params

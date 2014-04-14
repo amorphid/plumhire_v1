@@ -16,6 +16,10 @@
         ENV["webfonts"]
       )
     %>
+    <%= stylesheet_link_tag(
+        "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+      )
+    %>
     <%= javascript_include_tag(
         "application",
         "data-turbolinks-track" => true
@@ -24,14 +28,19 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render "misc/navbar" %>
-    <% if flash[:success] %>
-      <%= flash[:success] %>
-    <% end %>
-    <div class="container">
-      <div class="row">
+    <header>
+      <%= render "misc/navbar" %>
+    </header>
+    <main>
+      <div class="container">
+        <% if flash[:success] %>
+          <div class="alert alert-success">
+            <%= flash[:success] %>
+          </div>
+
+        <% end %>
         <%= yield %>
       </div>
-    </div>
+    </main>
   </body>
 </html>
