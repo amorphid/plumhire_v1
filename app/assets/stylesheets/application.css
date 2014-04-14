@@ -13,11 +13,10 @@
  *= require_self
  */
 
-.content {
-  background-color:#fff;
-  border-radius: 4px;
-  border:1px solid #ddd;
-  box-shadow:1px 1px 2px rgba(0,0,0,0.25);
+body {
+  background-color: #eee;
+  font-family: 'ITC American Typewriter W02';
+  padding-top: 70px;
 }
 
 /* alerts */
@@ -54,17 +53,13 @@
   border-color: #4b4167;
 }
 
-/* fonts */
-
-body {
-  background-color: #eee;
-  font-family:'ITC American Typewriter W02';
-  padding-top: 70px;
-}
-
 /* pages */
 
 .page {
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
   margin: 35px auto 0px auto;
 }
 
@@ -78,7 +73,6 @@ body {
 }
 
 .page-sign-up {
-
   padding: 35px;
   max-width: 400px;
 }
@@ -104,10 +98,7 @@ body {
   font-size: 12px;
   font-weight: 600;
   background: #b94a48;
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-radius: 4px;
 }
 
 .form-group .parsley-error-list::after {
