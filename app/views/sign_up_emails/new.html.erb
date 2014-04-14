@@ -1,14 +1,12 @@
 <% provide(:title, "Sign up") %>
 
-<div class="content page page-type1">
+<div class="page page-type1">
    <%= image_tag(
-        "plum2-150x150.png",
+        "plum1-152x152.png",
         alt: "Plumhire",
         class: "center-block img-responsive"
       )
     %>
-    <br />
-    <br />
   <h1>
     Sign up
   </h1>
@@ -44,7 +42,7 @@
           tabindex: "1"
         )
       %>
-    </div>
+    </div><!-- form-group -->
     <div class="form-group">
         <%= f.submit(
           "Submit",
@@ -52,9 +50,8 @@
           tabindex: "2"
         )
       %>
-
-    </div>
+    </div><!-- form-group -->
   <% end %><!-- form_for -->
-</div><!-- content -->
+</div><!-- page -->
 
 

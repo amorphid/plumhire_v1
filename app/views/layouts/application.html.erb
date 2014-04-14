@@ -5,7 +5,7 @@
       Plumhire |
       <%= yield(:title) %>
     </title>
-    <%= favicon_link_tag("pic_logo-152x152.png") %>
+    <%= favicon_link_tag("plum1-152x152.png") %>
     <%= stylesheet_link_tag(
         "application",
         media: "all",
@@ -37,7 +37,6 @@
           <div class="alert alert-success">
             <%= flash[:success] %>
           </div>
-
         <% end %>
         <%= yield %>
       </div>
