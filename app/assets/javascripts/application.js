@@ -20,8 +20,8 @@
 //= require textarea
 //
 // Vendor folder
-//= require parsley
-//= require autosize
+//= require parsley.min
+//= require autosize.min
 //
 // Gems
 //= require bootstrap
