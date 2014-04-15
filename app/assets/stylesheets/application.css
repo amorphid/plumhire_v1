@@ -49,7 +49,10 @@ body {
 
 /* buttons */
 
-.btn-primary {
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:visited {
   background-color: #6b5c93;
   border-color: #594c7a;
 }

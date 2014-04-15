@@ -15,13 +15,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //
-// LIB
-//= require form
-//= require textarea
+// Gems
+//= require bootstrap
 //
 // Vendor folder
 //= require parsley.min
 //= require autosize.min
 //
-// Gems
-//= require bootstrap
+// LIB
+//= require form
+//= require textarea
