@@ -1,43 +1,56 @@
 <% page_title("Sign up") %>
 
-<h3>
-  Sign Up
-</h3>
-
-<h4>
-  Step 3 of 3: Create password
-</h4>
-
-<%= form_for(
-    @sign_up,
-    html: {
-      id: "edit_sign_up_#{@sign_up.uuid}"
-    },
-    method: :put,
-    url: sign_up_password_path(@sign_up)
-  ) do |f|
-%>
-  <% if @user && @user.errors.any? %>
-    <%= render "errors" %>
-  <% end %>
-  <%= f.hidden_field(
-     :id,
-     value: @sign_up.uuid
-   )
+<div class="page page-type1">
+  <%= image_tag(
+      "plum3-152x152.png",
+      alt: "Plumhire",
+      class: "center-block img-responsive"
+    )
   %>
-  <%= f.label(:password) %>
-  <%= f.password_field(
-      :password,
-      data: {
-        minlength: "8",
-        required: "change"
+  <h1>
+    Sign Up
+  </h1>
+  <%= form_for(
+      @sign_up,
+      html: {
+        class: "form",
+        id: "edit_sign_up_#{@sign_up.uuid}"
       },
-      tabindex: "1"
-    )
+      method: :put,
+      url: sign_up_password_path(@sign_up)
+    ) do |f|
   %>
-  <%= f.submit(
-      "Submit",
-      tabindex: "2"
-    )
-  %>
-<% end %>
+    <% if @user && @user.errors.any? %>
+      <%= render "errors" %>
+    <% end %>
+    <%= f.hidden_field(
+       :id,
+       value: @sign_up.uuid
+     )
+    %>
+    <div class="form-group">
+      <%= f.label(
+          :password,
+          class: "placeholder-hidden"
+        )
+      %>
+      <%= f.password_field(
+          :password,
+          class: "form-control input-lg",
+          data: {
+            "parsley-required"  => "true",
+            "parsley-minlength" => "8"
+          },
+          placeholder: "Password",
+          tabindex: "1"
+        )
+      %>
+    </div>
+    <%= f.submit(
+        "Submit",
+        class: "btn btn-block btn-primary btn-lg",
+        tabindex: "2"
+      )
+    %>
+  <% end %>
+</div>
