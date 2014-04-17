@@ -1,7 +1,9 @@
 require "spec_helper"
 
 feature "Signing up" do
-  given(:email) { Faker::Internet.email }
+  given(:email) { Faker::Internet.email      }
+  given(:uuid)  { SignUp.find_by(email: email).uuid }
+  given(:password_url) { "http://#{ENV["domain"]}/sign_up_passwords/#{uuid}/edit" }
 
   background do
     visit root_path
@@ -11,9 +13,10 @@ feature "Signing up" do
   scenario "displays message w/ valid input" do
     fill_in "sign_up_email", with: email
     click_button("Submit")
-    expect(page.body).to have_content("Hey #{email},")
+    expect(page.body).to have_content("Please check your email")
     open_email(email)
-    current_email.click_link("click here")
+    expect(current_email).to have_content(password_url)
+    visit(password_url)
     fill_in :sign_up_password, with: "password"
     click_button("Submit")
     expect(page.body).to have_content(
@@ -29,9 +32,10 @@ feature "Signing up" do
   scenario "displays error w/o password" do
     fill_in "sign_up_email", with: email
     click_button("Submit")
-    expect(page.body).to have_content("Hey #{email},")
+    expect(page.body).to have_content("Please check your email")
     open_email(email)
-    current_email.click_link("click here")
+    expect(current_email).to have_content(password_url)
+    visit(password_url)
     click_button("Submit")
     expect(page.body).to have_content("Password can't be blank")
   end
