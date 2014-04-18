@@ -1,1 +1,69 @@
 <% page_title("Sign in") %>
+
+<div class="page page-type1">
+   <%= image_tag(
+        "plum6-152x152.png",
+        alt: "Plumhire",
+        class: "center-block img-responsive"
+      )
+    %>
+  <h1>
+    Sign in
+  </h1>
+  <%= form_for(
+      @s,
+      html: {
+        class: "form"
+      },
+      method: :put,
+      role: "form",
+      url: sign_in_path(@s)
+    ) do |f|
+  %>
+    <% if @u.errors.any? %>
+      <%= render("errors") %>
+    <% end %>
+    <div class="form-group">
+      <%= f.label(
+          :email,
+          class: "placeholder-hidden"
+        )
+      %>
+      <%= f.text_field(
+          :email,
+          class: "form-control input-lg",
+          data: {
+            "parsley-required" => "true"
+          },
+          placeholder: "Email",
+          tabindex: "1"
+        )
+      %>
+    </div><!-- form-group -->
+    <div class="form-group">
+      <%= f.label(
+          :password,
+          class: "placeholder-hidden"
+        )
+      %>
+      <%= f.text_field(
+          :password,
+          class: "form-control input-lg",
+          data: {
+            "parsley-required" => "true"
+          },
+          placeholder: "Password",
+          tabindex: "2"
+        )
+      %>
+    </div><!-- form-group -->
+    <%= f.submit(
+        "Submit",
+        class: "btn btn-block btn-primary btn-lg",
+        tabindex: "3"
+      )
+    %>
+  <% end %><!-- form_for -->
+</div><!-- page -->
+
+

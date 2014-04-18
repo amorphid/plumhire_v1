@@ -6,7 +6,7 @@ feature "Signing in" do
   background { visit new_sign_in_path }
 
   scenario "displays error message(s) w/ invalid input" do
-    click("Submit")
+    click_button("Submit")
     expect(page.body).to have_content("Email can't be blank")
     expect(page.body).to have_content("Password can't be blank")
   end
