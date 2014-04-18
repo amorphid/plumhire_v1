@@ -7,4 +7,12 @@ describe JobsController do
       action:     "new"
     )
   end
+
+  it do
+    should route(:put, "/jobs/1").to(
+      controller: "jobs",
+      id:         "1",
+      action:     "update"
+    )
+  end
 end
