@@ -4,7 +4,10 @@ Plumhire::Application.routes.draw do
 
   resources(
     :jobs,
-    only: :new
+    only: [
+      :new,
+      :update
+    ]
   )
 
   resources(
