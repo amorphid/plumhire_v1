@@ -22,7 +22,10 @@ Plumhire::Application.routes.draw do
 
   resources(
     :sign_ins,
-    only: :new
+    only: [
+      :new,
+      :update
+    ]
   )
 
   resources(
