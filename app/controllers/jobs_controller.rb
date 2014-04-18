@@ -3,6 +3,10 @@ class JobsController < ApplicationController
     @j = Job.new
   end
 
+  def show
+    @j = Job.find_by(uuid: params[:id])
+  end
+
   def update
     @j = Job.find_or_initialize_by(uuid: params[:id])
 

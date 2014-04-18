@@ -1,7 +1,7 @@
 require "spec_helper"
 
 feature "Creating a job" do
-  let(:body)  { Faker::Lorem.paragraphs }
+  let(:body)  { Faker::Lorem.paragraphs.join("\n\n") }
   let(:title) { Faker::Lorem.sentence   }
   let(:user)  { Fabricate(:user)        }
 
@@ -9,7 +9,7 @@ feature "Creating a job" do
     visit user_home_page_path(user)
     click_link("New Job")
     fill_in "job_title", with: title
-    fill_in "job_body",  with: body.join("\n\n")
+    fill_in "job_body",  with: body
     click_button("Submit")
     expect(page.body).to have_content("Your job has been created")
     expect(page.body).to have_content(title)
