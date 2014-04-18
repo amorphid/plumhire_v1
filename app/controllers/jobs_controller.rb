@@ -5,8 +5,13 @@ class JobsController < ApplicationController
 
   def update
     @j = Job.find_or_initialize_by(uuid: params[:id])
-    @j.update(job_params)
-    render action: "new"
+
+    if @j.update(job_params)
+      flash[:success] = "Your job has been created"
+      redirect_to job_path(@j)
+    else
+      render action: "new"
+    end
   end
 
   private

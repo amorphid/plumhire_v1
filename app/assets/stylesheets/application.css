@@ -98,7 +98,14 @@ body {
   max-width: 400px;
 }
 
-.page-type1 h1 {
+.page-type2 {
+  padding: 35px;
+  min-width: 400px;
+  max-width: 954px;
+}
+
+.page-type1 h1,
+.page-type2 h1 {
   margin-top: 60px;
   text-align: center;
 }
