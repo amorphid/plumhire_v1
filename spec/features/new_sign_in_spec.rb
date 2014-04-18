@@ -17,7 +17,7 @@ feature "Signing in" do
     )
     click_button("Submit")
     expect(page.body).to have_content("You are now logged in :)")
-    expect(current_path).to be(user_home_page(user))
+    expect(current_path).to eq(user_home_page_path(user))
   end
 
   scenario "displays error message(s) w/ invalid email & invalid password" do
