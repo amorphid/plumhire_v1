@@ -98,6 +98,10 @@ body {
   max-width: 400px;
 }
 
+.page-type1 .input-nth {
+  margin-top: -25px;
+}
+
 .page-type2 {
   padding: 35px;
   min-width: 400px;
