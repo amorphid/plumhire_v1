@@ -11,13 +11,13 @@ describe UserHomePagesController do
       # expect(assigns[:user]).to be_instance_of(User)
     end
 
-    it "redirect if not signed in" do
+    it "redirects if not signed in" do
       u = Fabricate(:user)
       get(
         :show,
         id: u.uuid
       )
-      expect(response).to redirect_to(sign_ins_path)
+      expect(response).to redirect_to(new_sign_in_path)
     end
   end
 end
