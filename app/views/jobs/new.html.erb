@@ -19,7 +19,7 @@
     ) do |f|
   %>
     <% if @j.errors.any? %>
-      <%= render("errors") %>
+      <% render("errors") %>
     <% end %>
     <div class="form-group">
       <%= f.label(
@@ -30,9 +30,9 @@
       <%= f.text_field(
           :title,
           class: "form-control input-lg",
-          # data: {
-          #   "parsley-required" => "true"
-          # },
+          data: {
+            "parsley-required" => "true"
+          },
           placeholder: "Title",
           tabindex: "1"
         )
@@ -44,13 +44,14 @@
           class: "placeholder-hidden"
         )
       %>
-      <%= f.text_area(
+      <%= f.text_field(
           :body,
           class: "form-control input-lg",
-          # data: {
-          #   "parsley-required" => "true"
-          # },
+          data: {
+            "parsley-required" => "true"
+          },
           placeholder: "Body",
+          rows: "10",
           tabindex: "2"
         )
       %>
