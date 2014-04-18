@@ -9,7 +9,7 @@ describe SignInsController do
   end
 
   context "#update" do
-    it "sets @u" do
+    it "sets @u w/ valid input" do
       u = Fabricate(:user)
       put(
         :update,
@@ -19,14 +19,9 @@ describe SignInsController do
       expect(assigns[:u]).to be_instance_of(User)
     end
 
-    it "redirects" do
-      u = Fabricate(:user)
-      put(
-        :update,
-        user: u.attributes,
-        id:   u.uuid
-      )
-      expect(assigns[:u]).to be_instance_of(User)
+    it "redirects w/ invalid input" do
+      put(:update)
+      expect(response).to redirect_to(new_sign_in_path)
     end
   end
 end

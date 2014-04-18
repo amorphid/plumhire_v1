@@ -1,9 +1,24 @@
 <div class="alert alert-danger">
-  </ul>
-    <% @u.errors.full_messages.each do |msg| %>
-      <li>
-        <%= msg %>
-      </li>
-    <% end %>
-  </ul>
+  <% if flash[:exit_code] == "1" %>
+    <%= @user_errors %>
+  <% end %>
+
+  <% if flash[:exit_code] == "2" %>
+    <%= @user_errors %>
+    <%= link_to(
+        "sign up here",
+        new_sign_up_email_path
+      )
+    %>
+  <% end %>
+
+  <% if flash[:exit_code] == "3" %>
+    <ul>
+      <% @user_errors.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

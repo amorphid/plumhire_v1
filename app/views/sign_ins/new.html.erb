@@ -20,7 +20,7 @@
       url: sign_in_path(@u)
     ) do |f|
   %>
-    <% if @u.errors.any? %>
+    <% if @user_errors %>
       <%= render("errors") %>
     <% end %>
     <div class="form-group">
@@ -32,9 +32,9 @@
       <%= f.text_field(
           :email,
           class: "form-control input-lg",
-          data: {
-            "parsley-required" => "true"
-          },
+          # data: {
+          #   "parsley-required" => "true"
+          # },
           placeholder: "Email",
           tabindex: "1"
         )
@@ -49,9 +49,9 @@
       <%= f.text_field(
           :password,
           class: "form-control input-lg",
-          data: {
-            "parsley-required" => "true"
-          },
+          # data: {
+          #   "parsley-required" => "true"
+          # },
           placeholder: "Password",
           tabindex: "2"
         )
