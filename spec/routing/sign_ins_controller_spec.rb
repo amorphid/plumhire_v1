@@ -7,4 +7,12 @@ describe SignInsController do
       action:     "new"
     )
   end
+
+  it do
+    should route(:put, "/sign_ins/1").to(
+      controller: "sign_ins",
+      id:         "1",
+      action:     "update"
+    )
+  end
 end
