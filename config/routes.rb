@@ -21,6 +21,11 @@ Plumhire::Application.routes.draw do
   )
 
   resources(
+    :sign_ins,
+    only: :new
+  )
+
+  resources(
     :sign_up_passwords,
     only: [
       :edit,
