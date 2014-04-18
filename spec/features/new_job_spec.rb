@@ -9,7 +9,6 @@ feature "Creating a job" do
     visit user_home_page_path(user)
     click_link("New Job")
     fill_in "job_title", with: title
-    binding.pry
     fill_in "job_body",  with: body.join("\n\n")
     click_button("Submit")
     expect(page.body).to have_content("Your job has been created")

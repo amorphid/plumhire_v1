@@ -21,7 +21,7 @@
     ) do |f|
   %>
     <% if @j.errors.any? %>
-      <% render("errors") %>
+      <%= render("errors") %>
     <% end %>
     <div class="form-group">
       <%= f.label(:title) %>
