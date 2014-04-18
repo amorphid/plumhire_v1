@@ -8,6 +8,18 @@ describe JobsController do
     end
   end
 
+  context "#show" do
+    it "sets @j" do
+      j = Fabricate(:job)
+      get(
+        :show,
+        job: j.attributes,
+        id:  j.uuid
+      )
+      expect(assigns[:j]).to eq(j)
+    end
+  end
+
   context "#update" do
     it "sets @j" do
       j = Fabricate.build(:job)
