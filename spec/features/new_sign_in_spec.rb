@@ -4,8 +4,21 @@ feature "Signing in" do
   given(:bad_email) { "bob@example.com" }
   given(:user)      { Fabricate(:user, email: "susie@example.com") }
 
-
   background { visit new_sign_in_path }
+
+  scenario "displays error message(s) w/ invalid input" do
+    fill_in(
+      "user_email",
+      with: user.email
+    )
+    fill_in(
+      "user_password",
+      with: user.password
+    )
+    click_button("Submit")
+    expect(page.body).to have_content("You are now logged in :)")
+    expect(current_path).to be(user_home_page(user))
+  end
 
   scenario "displays error message(s) w/ invalid email & invalid password" do
     fill_in(
