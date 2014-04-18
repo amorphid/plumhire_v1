@@ -6,6 +6,7 @@ Plumhire::Application.routes.draw do
     :jobs,
     only: [
       :new,
+      :show,
       :update
     ]
   )
