@@ -8,10 +8,10 @@ feature "Creating a job" do
   scenario "displays a success message w/ valid input" do
     visit user_home_page_path(user)
     click_link("New Job")
-    fill_in "job_ad_title", with: title
-    fill_in "job_ad_body",  with: body
+    fill_in "job_title", with: title
+    fill_in "job_body",  with: body
     click_button("Submit")
-    expect(page.body).to have_content("Your job ad has been created")
+    expect(page.body).to have_content("Your job has been created")
     expect(page.body).to have_content(title)
     expect(page.body).to have_content(body)
   end
