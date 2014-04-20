@@ -10,10 +10,17 @@ describe SignInsController do
 
   context "#update" do
     it "sets @u w/ valid input" do
-      u = Fabricate(:user)
+      u = Fabricate(
+        :user,
+        password: "12345678",
+        password_confirmation: "12345678"
+      )
       put(
         :update,
-        user: u.attributes,
+        user: {
+          email:    u.email,
+          password: "12345678"
+        },
         id:   u.uuid
       )
       expect(assigns[:u]).to be_instance_of(User)
