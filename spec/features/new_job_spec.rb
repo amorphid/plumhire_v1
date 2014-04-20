@@ -1,9 +1,9 @@
 require "spec_helper"
 
 feature "Creating a job" do
-  let(:body)  { Faker::Lorem.paragraphs.join("\n\n") }
-  let(:title) { Faker::Lorem.sentence   }
-  let(:user)  { Fabricate(:user)        }
+  given(:body)  { Faker::Lorem.paragraphs.join("\n\n") }
+  given(:title) { Faker::Lorem.sentence   }
+  given(:user)  { signed_in_user }
 
   scenario "displays a success message w/ valid input" do
     visit user_home_page_path(user)

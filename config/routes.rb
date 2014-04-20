@@ -1,5 +1,4 @@
 Plumhire::Application.routes.draw do
-
   root to: "front_pages#index"
 
   resources(
