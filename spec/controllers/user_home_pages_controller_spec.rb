@@ -4,6 +4,7 @@ describe UserHomePagesController do
   context "#show" do
     it "sets @user if signed in" do
       u = Fabricate(:user)
+      session[:user_id] = u.id
       get(
         :show,
         id: u.uuid
