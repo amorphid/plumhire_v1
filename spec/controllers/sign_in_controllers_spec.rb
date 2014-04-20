@@ -21,14 +21,26 @@ describe SignInsController do
           email:    u.email,
           password: "12345678"
         },
-        id:   u.uuid
+        id: Sro::Uuid.version5
       )
       expect(assigns[:u]).to be_instance_of(User)
     end
 
-    it "redirects w/ invalid input" do
-      put(:update)
-      expect(response).to redirect_to(new_sign_in_path)
+    it "redirects w/ valid input" do
+      u = Fabricate(
+        :user,
+        password: "12345678",
+        password_confirmation: "12345678"
+      )
+      put(
+        :update,
+        user: {
+          email:    u.email,
+          password: "12345678"
+        },
+        id: Sro::Uuid.version5
+      )
+      expect(response).to redirect_to(user_home_page_path(u))
     end
   end
 end
