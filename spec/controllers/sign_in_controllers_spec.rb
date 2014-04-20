@@ -9,12 +9,15 @@ describe SignInsController do
   end
 
   context "#update" do
-    it "sets @u" do
-      u = Fabricate(
+    let(:u) do
+      Fabricate(
         :user,
         password: "12345678",
         password_confirmation: "12345678"
       )
+    end
+
+    let(:put_update) do
       put(
         :update,
         user: {
@@ -23,23 +26,15 @@ describe SignInsController do
         },
         id: Sro::Uuid.version5
       )
+    end
+
+    it "sets @u" do
+      put_update
       expect(assigns[:u]).to be_instance_of(User)
     end
 
     it "redirects" do
-      u = Fabricate(
-        :user,
-        password: "12345678",
-        password_confirmation: "12345678"
-      )
-      put(
-        :update,
-        user: {
-          email:    u.email,
-          password: "12345678"
-        },
-        id: Sro::Uuid.version5
-      )
+      put_update
       expect(response).to redirect_to(user_home_page_path(u))
     end
   end
