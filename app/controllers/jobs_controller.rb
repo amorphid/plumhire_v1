@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_action :authorize
+
   def new
     @j = Job.new
   end

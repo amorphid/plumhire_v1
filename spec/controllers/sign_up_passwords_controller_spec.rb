@@ -16,7 +16,7 @@ describe SignUpPasswordsController do
     end
   end
 
-  context "#update (w/ valid input)" do
+  context "#update" do
     it "sets @sign_up" do
       s = Fabricate(:sign_up)
       put(
@@ -77,7 +77,9 @@ describe SignUpPasswordsController do
         sign_up:  sign_up_attr,
         id:       sign_up_attr["uuid"]
       )
-      expect(response).to redirect_to(user_home_page_path(User.last))
+      expect(response).to redirect_to(
+        user_home_page_path(User.find_by(email: sign_up.email))
+      )
     end
   end
 end

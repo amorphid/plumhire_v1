@@ -9,7 +9,7 @@ describe SignInsController do
   end
 
   context "#update" do
-    it "sets @u w/ valid input" do
+    it "sets @u" do
       u = Fabricate(
         :user,
         password: "12345678",
@@ -26,7 +26,7 @@ describe SignInsController do
       expect(assigns[:u]).to be_instance_of(User)
     end
 
-    it "redirects w/ valid input" do
+    it "redirects" do
       u = Fabricate(
         :user,
         password: "12345678",

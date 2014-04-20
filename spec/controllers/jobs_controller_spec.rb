@@ -1,16 +1,23 @@
 require "spec_helper"
 
 describe JobsController do
+  before { sign_in }
+
   context "#new" do
     it "sets @j" do
       get :new
       expect(assigns[:j]).to be_instance_of(Job)
     end
+
+    it_behaves_like "require_sign_in" do
+      let(:action) { get :new }
+    end
   end
 
   context "#show" do
+    let(:j) { Fabricate(:job) }
+
     it "sets @j" do
-      j = Fabricate(:job)
       get(
         :show,
         job: j.attributes,
@@ -21,8 +28,9 @@ describe JobsController do
   end
 
   context "#update" do
+    let(:j) { Fabricate.build(:job) }
+
     it "sets @j" do
-      j = Fabricate.build(:job)
       put(
         :update,
         job: j.attributes,
@@ -32,7 +40,6 @@ describe JobsController do
     end
 
     it "redirect" do
-      j = Fabricate.build(:job)
       put(
         :update,
         job: j.attributes,
@@ -43,7 +50,6 @@ describe JobsController do
 
     it "creates 1 job w/ 1 put request" do
       count = Job.count
-      j = Fabricate.build(:job)
       put(
         :update,
         job: j.attributes,
@@ -54,7 +60,6 @@ describe JobsController do
 
     it "creates 1 job w/ 2 put requests" do
       count = Job.count
-      j = Fabricate.build(:job)
       put(
         :update,
         job: j.attributes,
@@ -66,6 +71,10 @@ describe JobsController do
         id:  j.uuid
       )
       expect(Job.count).to eq(count + 1)
+    end
+
+    it_behaves_like "require_sign_in" do
+      let(:action) { put :update, id: j.uuid }
     end
   end
 end
