@@ -21,7 +21,7 @@ class SignInsController < ApplicationController
 
   def set_user_errors
     case
-    when user_params["email"].length    > 0 &&
+    when @u.new_record? == false &&
          user_params["password"].length > 0
       flash[:exit_code] = "1"
       "That's the wrong password for \"#{user_params["email"]}\""
