@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authorize
+  before_action :signed_in?
 
   def new
     @j = Job.new

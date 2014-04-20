@@ -11,7 +11,8 @@ class SignUpPasswordsController < ApplicationController
       password:              sign_up_params[:password],
       password_confirmation: sign_up_params[:password]
     )
-      flash[:success] = "Sign Up successful, and you're now logged in, too!"
+      session[:user_id] = @user.id
+      flash[:success] = "You are now signed up & logged in :)"
       redirect_to user_home_page_path(@user)
     else
       render "edit"

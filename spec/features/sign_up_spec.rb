@@ -10,7 +10,7 @@ feature "Signing up" do
     click_link("Sign up")
   end
 
-  scenario "displays message w/ valid input" do
+  scenario "displays success message w/ email" do
     fill_in "sign_up_email", with: email
     click_button("Submit")
     expect(page.body).to have_content("Please check your email")
@@ -20,11 +20,11 @@ feature "Signing up" do
     fill_in :sign_up_password, with: "password"
     click_button("Submit")
     expect(page.body).to have_content(
-      "Sign Up successful, and you're now logged in, too!"
+      "You are now signed up & logged in :)"
     )
   end
 
-  scenario "displays error w/o email" do
+  scenario "displays error message w/o email" do
     click_button("Submit")
     expect(page.body).to have_content("Email can't be blank")
   end
