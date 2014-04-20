@@ -17,23 +17,23 @@ describe SignUpPasswordsController do
   end
 
   context "#update" do
-    it "sets @sign_up" do
-      s = Fabricate(:sign_up)
+    let(:put_update) do
       put(
         :update,
         sign_up: s.attributes,
         id:      s.uuid
       )
+    end
+
+    let(:s) { Fabricate(:sign_up) }
+
+    it "sets @sign_up" do
+      put_update
       expect(assigns[:sign_up]).to be_instance_of(SignUp)
     end
 
     it "sets @user" do
-      s = Fabricate(:sign_up)
-      put(
-        :update,
-        sign_up: s.attributes,
-        id:      s.uuid
-      )
+      put_update
       expect(assigns[:user]).to be_instance_of(User)
     end
 

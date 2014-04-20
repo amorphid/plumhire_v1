@@ -21,8 +21,6 @@ describe SignUpEmailsController do
   end
 
   context "#update (w/ valid input)" do
-    let(:s) { Fabricate.build(:sign_up) }
-
     let(:put_update) do
       put(
         :update,
@@ -30,6 +28,8 @@ describe SignUpEmailsController do
         id:      s.uuid
       )
     end
+
+    let(:s) { Fabricate.build(:sign_up) }
 
     it "sets @sign_up" do
       put_update
