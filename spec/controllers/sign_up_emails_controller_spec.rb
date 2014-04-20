@@ -21,38 +21,33 @@ describe SignUpEmailsController do
   end
 
   context "#update (w/ valid input)" do
-    it "sets @sign_up" do
-      s = Fabricate.build(:sign_up)
+    let(:s) { Fabricate.build(:sign_up) }
+
+    let(:put_update) do
       put(
         :update,
         sign_up: s.attributes,
         id:      s.uuid
       )
+    end
+
+    it "sets @sign_up" do
+      put_update
       expect(assigns(:s)).to be_instance_of(SignUp)
     end
 
     it "redirects" do
-      s = Fabricate.build(:sign_up)
-      put(
-        :update,
-        sign_up: s.attributes,
-        id:      s.uuid
-      )
+      put_update
       expect(response).to redirect_to(sign_up_email_path(s))
     end
 
-    it "creates a SignUp" do
+    it "creates a SignUp w/ 1 put request" do
       count = SignUp.count
-      s     = Fabricate.build(:sign_up)
-      put(
-        :update,
-        sign_up: s.attributes,
-        id:      s.uuid
-      )
+      put_update
       expect(SignUp.count).to eq(count + 1)
     end
 
-    it "updates a SignUp" do
+    it "updates a SignUp w/ 2 put requests" do
       s1 = Fabricate(
         :sign_up,
         email: "a@b.c"
@@ -71,33 +66,18 @@ describe SignUpEmailsController do
     end
 
     it "sets #email_sent_on" do
-      s = Fabricate.build(:sign_up, email: "a@b.c")
-      put(
-        :update,
-        sign_up: s.attributes,
-        id:      s.uuid
-      )
+      put_update
       expect(SignUp.find_by(uuid: s.uuid).email_sent_on).
         to be_instance_of(ActiveSupport::TimeWithZone)
     end
 
     it "sends 1 email w/ 1 put request" do
-      s = Fabricate.build(:sign_up)
-      put(
-        :update,
-        sign_up: s.attributes,
-        id:      s.uuid
-      )
+      put_update
       expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
 
     it "sends 1 email w/ 2 put requests" do
-      s = Fabricate.build(:sign_up)
-      put(
-        :update,
-        sign_up: s.attributes,
-        id:      s.uuid
-      )
+      put_update
       expect(ActionMailer::Base.deliveries.count).to eq(1)
     end
 
