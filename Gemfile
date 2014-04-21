@@ -19,6 +19,7 @@ gem "sidekiq", "2.17.7"
 gem "sro", :github => "amorphid/sro"
 gem "turbolinks", "2.2.1"
 gem "uglifier", "2.4.0"
+gem "useragent", "0.10.0"
 
 group :development, :test do
   gem "capybara", "2.2.1"
