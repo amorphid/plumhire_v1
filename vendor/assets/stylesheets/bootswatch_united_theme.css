@@ -9,8 +9,13 @@
 */
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
+/*
+ * Notes:
+ * -commented out all lines w/ "font-family"
+ */
+
 html {
-  font-family: sans-serif;
+/*  font-family: sans-serif;*/
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -108,7 +113,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+/*  font-family: monospace, monospace;*/
   font-size: 1em;
 }
 button,
@@ -275,7 +280,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+/*  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -285,7 +290,7 @@ input,
 button,
 select,
 textarea {
-  font-family: inherit;
+/*  font-family: inherit;*/
   font-size: inherit;
   line-height: inherit;
 }
@@ -364,7 +369,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+/*  font-family: "Ubuntu", Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -692,7 +697,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+/*  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;*/
 }
 code {
   padding: 2px 4px;
@@ -2376,7 +2381,7 @@ input[type="button"].btn-block {
   transition: height 0.35s ease;
 }
 @font-face {
-  font-family: 'Glyphicons Halflings';
+/*  font-family: 'Glyphicons Halflings';*/
   src: url('../fonts/glyphicons-halflings-regular.eot');
   src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
@@ -2384,7 +2389,7 @@ input[type="button"].btn-block {
   position: relative;
   top: 1px;
   display: inline-block;
-  font-family: 'Glyphicons Halflings';
+/*  font-family: 'Glyphicons Halflings';*/
   font-style: normal;
   font-weight: normal;
   line-height: 1;
@@ -5517,7 +5522,7 @@ button.close {
   height: 20px;
   margin-top: -10px;
   margin-left: -10px;
-  font-family: serif;
+/*  font-family: serif;*/
 }
 .carousel-control .icon-prev:before {
   content: '\2039';
