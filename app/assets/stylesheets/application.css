@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require html5doctor.com_reset_stylesheet
- *= bootswatch_united_theme.css
+ *= require bootswatch_united_theme.css
  *= require_self
  */
 
