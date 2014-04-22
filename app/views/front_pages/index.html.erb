@@ -1,22 +1,21 @@
 <% provide(:title, "An applicant tracking system") %>
 
-<div class="content page page-front">
-  <%= image_tag(
-      "text_logo-705×189.png",
-      alt: "Plumhire",
-      class: "center-block img-responsive"
-    )
-  %>
-  <div class="text-center">
-    <h1>
-      An applicant tracking system
-    </h1>
-    <h1>
-      <%= link_to(
-        "Sign up",
-          new_sign_up_email_path
-        )
-      %>
-    </h1>
-  </div>
+<%= image_tag(
+    "text_logo-705×189.png",
+    alt: "Plumhire",
+    class: "center-block img-responsive"
+  )
+%>
+<div class="text-center">
+  <h1>
+    An applicant tracking system
+  </h1>
+  <h1>
+    <%= link_to(
+      "Sign up",
+        new_sign_up_email_path
+      )
+    %>
+  </h1>
 </div>
+

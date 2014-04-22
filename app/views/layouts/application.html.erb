@@ -29,22 +29,11 @@
   </head>
   <body>
     <header>
-      <%= render "misc/navbar" %>
+      <%= render "layouts/application_navbar_top" %>
+      <%= render "layouts/application_errors" %>
     </header>
     <main>
-      <div class="container">
-        <% if flash[:success] %>
-          <div class="alert alert-success">
-            <%= flash[:success] %>
-          </div>
-        <% end %>
-        <% if flash[:error] %>
-          <div class="alert alert-error">
-            <%= flash[:success] %>
-          </div>
-        <% end %>
-        <%= yield %>
-      </div>
+      <%= yield %>
     </main>
   </body>
 </html>

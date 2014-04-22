@@ -1,0 +1,197 @@
+<% unless mobile_browser? %>
+  <style>
+    @media (min-width: 768px) {
+      .navbar-right .dropdown-menu {
+        left: auto;
+        right: 0;
+      }
+      .navbar-right .dropdown-menu-left {
+        left: 0;
+        right: auto;
+      }
+      .nav-tabs.nav-justified > li {
+        display: table-cell;
+        width: 1%;
+      }
+      .nav-tabs.nav-justified > li > a {
+        margin-bottom: 0;
+      }
+      .nav-tabs.nav-justified > li > a {
+        border-bottom: 1px solid #dddddd;
+        border-radius: 4px 4px 0 0;
+      }
+      .nav-tabs.nav-justified > .active > a,
+      .nav-tabs.nav-justified > .active > a:hover,
+      .nav-tabs.nav-justified > .active > a:focus {
+        border-bottom-color: #ffffff;
+      }
+      .nav-justified > li {
+        display: table-cell;
+        width: 1%;
+      }
+      .nav-justified > li > a {
+        margin-bottom: 0;
+      }
+      .nav-tabs-justified > li > a {
+        border-bottom: 1px solid #dddddd;
+        border-radius: 4px 4px 0 0;
+      }
+      .nav-tabs-justified > .active > a,
+      .nav-tabs-justified > .active > a:hover,
+      .nav-tabs-justified > .active > a:focus {
+        border-bottom-color: #ffffff;
+      }
+      .navbar {
+        border-radius: 0px;
+      }
+      .navbar-header {
+        float: left;
+      }
+      .navbar-collapse {
+        width: auto;
+        border-top: 0;
+        box-shadow: none;
+      }
+      .navbar-collapse.collapse {
+        display: block !important;
+        height: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important;
+      }
+      .navbar-collapse.in {
+        overflow-y: visible;
+      }
+      .navbar-fixed-top .navbar-collapse,
+      .navbar-static-top .navbar-collapse,
+      .navbar-fixed-bottom .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .container > .navbar-header,
+      .container-fluid > .navbar-header,
+      .container > .navbar-collapse,
+      .container-fluid > .navbar-collapse {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      .navbar-static-top {
+        border-radius: 0;
+      }
+      .navbar-fixed-top,
+      .navbar-fixed-bottom {
+        border-radius: 0;
+      }
+      .navbar > .container .navbar-brand,
+      .navbar > .container-fluid .navbar-brand {
+        margin-left: -15px;
+      }
+      .navbar-toggle {
+        display: none;
+      }
+      .navbar-nav {
+        float: left;
+        margin: 0;
+      }
+      .navbar-nav > li {
+        float: left;
+      }
+      .navbar-nav > li > a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      .navbar-nav.navbar-right:last-child {
+        margin-right: -15px;
+      }
+      .navbar-left {
+        float: left !important;
+      }
+      .navbar-right {
+        float: right !important;
+      }
+      .navbar-form .form-group {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+      .navbar-form .form-control {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+      }
+      .navbar-form .input-group > .form-control {
+        width: 100%;
+      }
+      .navbar-form .control-label {
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+      .navbar-form .radio,
+      .navbar-form .checkbox {
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        vertical-align: middle;
+      }
+      .navbar-form .radio input[type="radio"],
+      .navbar-form .checkbox input[type="checkbox"] {
+        float: none;
+        margin-left: 0;
+      }
+      .navbar-form .has-feedback .form-control-feedback {
+        top: 0;
+      }
+      .navbar-form .form-group {
+        margin-bottom: 5px;
+      }
+      .navbar-form {
+        width: auto;
+        border: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .navbar-form.navbar-right:last-child {
+        margin-right: -15px;
+      }
+      .navbar-text {
+        float: left;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      .navbar-text.navbar-right:last-child {
+        margin-right: 0;
+      }
+    }
+  </style>
+<% end %>
+
+<div class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Plumhire</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-inverse-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <%= link_to(
+          "Sign in",
+          new_sign_in_path
+        )%>
+      </li>
+      <li>
+        <%= link_to(
+          "Sign up",
+          new_sign_up_email_path
+        )%>
+      </li>
+    </ul>
+  </div>
+</div>
