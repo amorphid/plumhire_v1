@@ -9,10 +9,16 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require html5doctor.com_reset_stylesheet
- *= require bootswatch_united_theme.css
  *= require_self
  */
 
 body {
-  font-family: 'ITC American Typewriter W02';
+  font-family: "ITC American Typewriter W02";
+}
+
+
+/* Nav bars throughout the site */
+.nav_bar {
+  background-color: #dd4814;
+  color:            #ffffff;
 }

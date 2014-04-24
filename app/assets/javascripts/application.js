@@ -26,3 +26,4 @@
 // LIB
 //= require form
 //= require textarea
+//= require nav_bar
